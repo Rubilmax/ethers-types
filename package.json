@@ -38,7 +38,7 @@
     "ethers": "^5.7.2"
   },
   "devDependencies": {
-    "@typechain/ethers-v5": "^10.2.1",
+    "@typechain/ethers-v5": "^11.0.0",
     "@types/node": "^20.2.5",
     "commitizen": "^4.3.0",
     "conventional-changelog-conventionalcommits": "^5.0.0",
