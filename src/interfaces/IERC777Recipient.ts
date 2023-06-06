@@ -20,7 +20,6 @@ import type {
   TypedEvent,
   TypedListener,
   OnEvent,
-  PromiseOrValue,
 } from "../common";
 
 export interface IERC777RecipientInterface extends utils.Interface {
@@ -32,14 +31,7 @@ export interface IERC777RecipientInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "tokensReceived",
-    values: [
-      PromiseOrValue<string>,
-      PromiseOrValue<string>,
-      PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BytesLike>,
-      PromiseOrValue<BytesLike>
-    ]
+    values: [string, string, string, BigNumberish, BytesLike, BytesLike]
   ): string;
 
   decodeFunctionResult(
@@ -78,34 +70,34 @@ export interface IERC777Recipient extends BaseContract {
 
   functions: {
     tokensReceived(
-      operator: PromiseOrValue<string>,
-      from: PromiseOrValue<string>,
-      to: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
-      userData: PromiseOrValue<BytesLike>,
-      operatorData: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      operator: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      userData: BytesLike,
+      operatorData: BytesLike,
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   tokensReceived(
-    operator: PromiseOrValue<string>,
-    from: PromiseOrValue<string>,
-    to: PromiseOrValue<string>,
-    amount: PromiseOrValue<BigNumberish>,
-    userData: PromiseOrValue<BytesLike>,
-    operatorData: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    operator: string,
+    from: string,
+    to: string,
+    amount: BigNumberish,
+    userData: BytesLike,
+    operatorData: BytesLike,
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     tokensReceived(
-      operator: PromiseOrValue<string>,
-      from: PromiseOrValue<string>,
-      to: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
-      userData: PromiseOrValue<BytesLike>,
-      operatorData: PromiseOrValue<BytesLike>,
+      operator: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      userData: BytesLike,
+      operatorData: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
   };
@@ -114,25 +106,25 @@ export interface IERC777Recipient extends BaseContract {
 
   estimateGas: {
     tokensReceived(
-      operator: PromiseOrValue<string>,
-      from: PromiseOrValue<string>,
-      to: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
-      userData: PromiseOrValue<BytesLike>,
-      operatorData: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      operator: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      userData: BytesLike,
+      operatorData: BytesLike,
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     tokensReceived(
-      operator: PromiseOrValue<string>,
-      from: PromiseOrValue<string>,
-      to: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
-      userData: PromiseOrValue<BytesLike>,
-      operatorData: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      operator: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      userData: BytesLike,
+      operatorData: BytesLike,
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

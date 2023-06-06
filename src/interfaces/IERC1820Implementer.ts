@@ -17,7 +17,6 @@ import type {
   TypedEvent,
   TypedListener,
   OnEvent,
-  PromiseOrValue,
 } from "../common";
 
 export interface IERC1820ImplementerInterface extends utils.Interface {
@@ -31,7 +30,7 @@ export interface IERC1820ImplementerInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "canImplementInterfaceForAddress",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
+    values: [BytesLike, string]
   ): string;
 
   decodeFunctionResult(
@@ -70,22 +69,22 @@ export interface IERC1820Implementer extends BaseContract {
 
   functions: {
     canImplementInterfaceForAddress(
-      interfaceHash: PromiseOrValue<BytesLike>,
-      account: PromiseOrValue<string>,
+      interfaceHash: BytesLike,
+      account: string,
       overrides?: CallOverrides
     ): Promise<[string]>;
   };
 
   canImplementInterfaceForAddress(
-    interfaceHash: PromiseOrValue<BytesLike>,
-    account: PromiseOrValue<string>,
+    interfaceHash: BytesLike,
+    account: string,
     overrides?: CallOverrides
   ): Promise<string>;
 
   callStatic: {
     canImplementInterfaceForAddress(
-      interfaceHash: PromiseOrValue<BytesLike>,
-      account: PromiseOrValue<string>,
+      interfaceHash: BytesLike,
+      account: string,
       overrides?: CallOverrides
     ): Promise<string>;
   };
@@ -94,16 +93,16 @@ export interface IERC1820Implementer extends BaseContract {
 
   estimateGas: {
     canImplementInterfaceForAddress(
-      interfaceHash: PromiseOrValue<BytesLike>,
-      account: PromiseOrValue<string>,
+      interfaceHash: BytesLike,
+      account: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     canImplementInterfaceForAddress(
-      interfaceHash: PromiseOrValue<BytesLike>,
-      account: PromiseOrValue<string>,
+      interfaceHash: BytesLike,
+      account: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };

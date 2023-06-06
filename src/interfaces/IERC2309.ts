@@ -15,7 +15,6 @@ import type {
   TypedEvent,
   TypedListener,
   OnEvent,
-  PromiseOrValue,
 } from "../common";
 
 export interface IERC2309Interface extends utils.Interface {
@@ -74,16 +73,16 @@ export interface IERC2309 extends BaseContract {
 
   filters: {
     "ConsecutiveTransfer(uint256,uint256,address,address)"(
-      fromTokenId?: PromiseOrValue<BigNumberish> | null,
+      fromTokenId?: BigNumberish | null,
       toTokenId?: null,
-      fromAddress?: PromiseOrValue<string> | null,
-      toAddress?: PromiseOrValue<string> | null
+      fromAddress?: string | null,
+      toAddress?: string | null
     ): ConsecutiveTransferEventFilter;
     ConsecutiveTransfer(
-      fromTokenId?: PromiseOrValue<BigNumberish> | null,
+      fromTokenId?: BigNumberish | null,
       toTokenId?: null,
-      fromAddress?: PromiseOrValue<string> | null,
-      toAddress?: PromiseOrValue<string> | null
+      fromAddress?: string | null,
+      toAddress?: string | null
     ): ConsecutiveTransferEventFilter;
   };
 

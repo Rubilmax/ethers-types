@@ -23,7 +23,6 @@ import type {
   TypedEvent,
   TypedListener,
   OnEvent,
-  PromiseOrValue,
 } from "../common";
 
 export interface IERC1820RegistryInterface extends utils.Interface {
@@ -52,39 +51,32 @@ export interface IERC1820RegistryInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "getInterfaceImplementer",
-    values: [PromiseOrValue<string>, PromiseOrValue<BytesLike>]
+    values: [string, BytesLike]
   ): string;
-  encodeFunctionData(
-    functionFragment: "getManager",
-    values: [PromiseOrValue<string>]
-  ): string;
+  encodeFunctionData(functionFragment: "getManager", values: [string]): string;
   encodeFunctionData(
     functionFragment: "implementsERC165Interface",
-    values: [PromiseOrValue<string>, PromiseOrValue<BytesLike>]
+    values: [string, BytesLike]
   ): string;
   encodeFunctionData(
     functionFragment: "implementsERC165InterfaceNoCache",
-    values: [PromiseOrValue<string>, PromiseOrValue<BytesLike>]
+    values: [string, BytesLike]
   ): string;
   encodeFunctionData(
     functionFragment: "interfaceHash",
-    values: [PromiseOrValue<string>]
+    values: [string]
   ): string;
   encodeFunctionData(
     functionFragment: "setInterfaceImplementer",
-    values: [
-      PromiseOrValue<string>,
-      PromiseOrValue<BytesLike>,
-      PromiseOrValue<string>
-    ]
+    values: [string, BytesLike, string]
   ): string;
   encodeFunctionData(
     functionFragment: "setManager",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
+    values: [string, string]
   ): string;
   encodeFunctionData(
     functionFragment: "updateERC165Cache",
-    values: [PromiseOrValue<string>, PromiseOrValue<BytesLike>]
+    values: [string, BytesLike]
   ): string;
 
   decodeFunctionResult(
@@ -175,266 +167,254 @@ export interface IERC1820Registry extends BaseContract {
 
   functions: {
     getInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
+      account: string,
+      _interfaceHash: BytesLike,
       overrides?: CallOverrides
     ): Promise<[string]>;
 
-    getManager(
-      account: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    getManager(account: string, overrides?: CallOverrides): Promise<[string]>;
 
     implementsERC165Interface(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
     implementsERC165InterfaceNoCache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
     interfaceHash(
-      interfaceName: PromiseOrValue<string>,
+      interfaceName: string,
       overrides?: CallOverrides
     ): Promise<[string]>;
 
     setInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
-      implementer: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      _interfaceHash: BytesLike,
+      implementer: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setManager(
-      account: PromiseOrValue<string>,
-      newManager: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      newManager: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     updateERC165Cache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      interfaceId: BytesLike,
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   getInterfaceImplementer(
-    account: PromiseOrValue<string>,
-    _interfaceHash: PromiseOrValue<BytesLike>,
+    account: string,
+    _interfaceHash: BytesLike,
     overrides?: CallOverrides
   ): Promise<string>;
 
-  getManager(
-    account: PromiseOrValue<string>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getManager(account: string, overrides?: CallOverrides): Promise<string>;
 
   implementsERC165Interface(
-    account: PromiseOrValue<string>,
-    interfaceId: PromiseOrValue<BytesLike>,
+    account: string,
+    interfaceId: BytesLike,
     overrides?: CallOverrides
   ): Promise<boolean>;
 
   implementsERC165InterfaceNoCache(
-    account: PromiseOrValue<string>,
-    interfaceId: PromiseOrValue<BytesLike>,
+    account: string,
+    interfaceId: BytesLike,
     overrides?: CallOverrides
   ): Promise<boolean>;
 
   interfaceHash(
-    interfaceName: PromiseOrValue<string>,
+    interfaceName: string,
     overrides?: CallOverrides
   ): Promise<string>;
 
   setInterfaceImplementer(
-    account: PromiseOrValue<string>,
-    _interfaceHash: PromiseOrValue<BytesLike>,
-    implementer: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    account: string,
+    _interfaceHash: BytesLike,
+    implementer: string,
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setManager(
-    account: PromiseOrValue<string>,
-    newManager: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    account: string,
+    newManager: string,
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   updateERC165Cache(
-    account: PromiseOrValue<string>,
-    interfaceId: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    account: string,
+    interfaceId: BytesLike,
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     getInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
+      account: string,
+      _interfaceHash: BytesLike,
       overrides?: CallOverrides
     ): Promise<string>;
 
-    getManager(
-      account: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getManager(account: string, overrides?: CallOverrides): Promise<string>;
 
     implementsERC165Interface(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     implementsERC165InterfaceNoCache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     interfaceHash(
-      interfaceName: PromiseOrValue<string>,
+      interfaceName: string,
       overrides?: CallOverrides
     ): Promise<string>;
 
     setInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
-      implementer: PromiseOrValue<string>,
+      account: string,
+      _interfaceHash: BytesLike,
+      implementer: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
     setManager(
-      account: PromiseOrValue<string>,
-      newManager: PromiseOrValue<string>,
+      account: string,
+      newManager: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
     updateERC165Cache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
   };
 
   filters: {
     "InterfaceImplementerSet(address,bytes32,address)"(
-      account?: PromiseOrValue<string> | null,
-      interfaceHash?: PromiseOrValue<BytesLike> | null,
-      implementer?: PromiseOrValue<string> | null
+      account?: string | null,
+      interfaceHash?: BytesLike | null,
+      implementer?: string | null
     ): InterfaceImplementerSetEventFilter;
     InterfaceImplementerSet(
-      account?: PromiseOrValue<string> | null,
-      interfaceHash?: PromiseOrValue<BytesLike> | null,
-      implementer?: PromiseOrValue<string> | null
+      account?: string | null,
+      interfaceHash?: BytesLike | null,
+      implementer?: string | null
     ): InterfaceImplementerSetEventFilter;
 
     "ManagerChanged(address,address)"(
-      account?: PromiseOrValue<string> | null,
-      newManager?: PromiseOrValue<string> | null
+      account?: string | null,
+      newManager?: string | null
     ): ManagerChangedEventFilter;
     ManagerChanged(
-      account?: PromiseOrValue<string> | null,
-      newManager?: PromiseOrValue<string> | null
+      account?: string | null,
+      newManager?: string | null
     ): ManagerChangedEventFilter;
   };
 
   estimateGas: {
     getInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
+      account: string,
+      _interfaceHash: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getManager(
-      account: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getManager(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     implementsERC165Interface(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     implementsERC165InterfaceNoCache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     interfaceHash(
-      interfaceName: PromiseOrValue<string>,
+      interfaceName: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     setInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
-      implementer: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      _interfaceHash: BytesLike,
+      implementer: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setManager(
-      account: PromiseOrValue<string>,
-      newManager: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      newManager: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     updateERC165Cache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      interfaceId: BytesLike,
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     getInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
+      account: string,
+      _interfaceHash: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getManager(
-      account: PromiseOrValue<string>,
+      account: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     implementsERC165Interface(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     implementsERC165InterfaceNoCache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
+      account: string,
+      interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     interfaceHash(
-      interfaceName: PromiseOrValue<string>,
+      interfaceName: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     setInterfaceImplementer(
-      account: PromiseOrValue<string>,
-      _interfaceHash: PromiseOrValue<BytesLike>,
-      implementer: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      _interfaceHash: BytesLike,
+      implementer: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setManager(
-      account: PromiseOrValue<string>,
-      newManager: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      newManager: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     updateERC165Cache(
-      account: PromiseOrValue<string>,
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      account: string,
+      interfaceId: BytesLike,
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

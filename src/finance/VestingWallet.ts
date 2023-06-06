@@ -24,7 +24,6 @@ import type {
   TypedEvent,
   TypedListener,
   OnEvent,
-  PromiseOrValue,
 } from "../common";
 
 export interface VestingWalletInterface extends utils.Interface {
@@ -67,7 +66,7 @@ export interface VestingWalletInterface extends utils.Interface {
   encodeFunctionData(functionFragment: "end", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "releasable(address)",
-    values: [PromiseOrValue<string>]
+    values: [string]
   ): string;
   encodeFunctionData(
     functionFragment: "releasable()",
@@ -75,7 +74,7 @@ export interface VestingWalletInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "release(address)",
-    values: [PromiseOrValue<string>]
+    values: [string]
   ): string;
   encodeFunctionData(functionFragment: "release()", values?: undefined): string;
   encodeFunctionData(
@@ -84,16 +83,16 @@ export interface VestingWalletInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "released(address)",
-    values: [PromiseOrValue<string>]
+    values: [string]
   ): string;
   encodeFunctionData(functionFragment: "start", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "vestedAmount(uint64)",
-    values: [PromiseOrValue<BigNumberish>]
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "vestedAmount(address,uint64)",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [string, BigNumberish]
   ): string;
 
   decodeFunctionResult(
@@ -194,38 +193,38 @@ export interface VestingWallet extends BaseContract {
     end(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     "releasable(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     "releasable()"(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     "release(address)"(
-      token: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      token: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     "release()"(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     "released()"(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     "released(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     start(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     "vestedAmount(uint64)"(
-      timestamp: PromiseOrValue<BigNumberish>,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     "vestedAmount(address,uint64)"(
-      token: PromiseOrValue<string>,
-      timestamp: PromiseOrValue<BigNumberish>,
+      token: string,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
   };
@@ -237,38 +236,38 @@ export interface VestingWallet extends BaseContract {
   end(overrides?: CallOverrides): Promise<BigNumber>;
 
   "releasable(address)"(
-    token: PromiseOrValue<string>,
+    token: string,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   "releasable()"(overrides?: CallOverrides): Promise<BigNumber>;
 
   "release(address)"(
-    token: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    token: string,
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   "release()"(
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   "released()"(overrides?: CallOverrides): Promise<BigNumber>;
 
   "released(address)"(
-    token: PromiseOrValue<string>,
+    token: string,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   start(overrides?: CallOverrides): Promise<BigNumber>;
 
   "vestedAmount(uint64)"(
-    timestamp: PromiseOrValue<BigNumberish>,
+    timestamp: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   "vestedAmount(address,uint64)"(
-    token: PromiseOrValue<string>,
-    timestamp: PromiseOrValue<BigNumberish>,
+    token: string,
+    timestamp: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
@@ -280,47 +279,44 @@ export interface VestingWallet extends BaseContract {
     end(overrides?: CallOverrides): Promise<BigNumber>;
 
     "releasable(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "releasable()"(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "release(address)"(
-      token: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    "release(address)"(token: string, overrides?: CallOverrides): Promise<void>;
 
     "release()"(overrides?: CallOverrides): Promise<void>;
 
     "released()"(overrides?: CallOverrides): Promise<BigNumber>;
 
     "released(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     start(overrides?: CallOverrides): Promise<BigNumber>;
 
     "vestedAmount(uint64)"(
-      timestamp: PromiseOrValue<BigNumberish>,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "vestedAmount(address,uint64)"(
-      token: PromiseOrValue<string>,
-      timestamp: PromiseOrValue<BigNumberish>,
+      token: string,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
   filters: {
     "ERC20Released(address,uint256)"(
-      token?: PromiseOrValue<string> | null,
+      token?: string | null,
       amount?: null
     ): ERC20ReleasedEventFilter;
     ERC20Released(
-      token?: PromiseOrValue<string> | null,
+      token?: string | null,
       amount?: null
     ): ERC20ReleasedEventFilter;
 
@@ -336,38 +332,36 @@ export interface VestingWallet extends BaseContract {
     end(overrides?: CallOverrides): Promise<BigNumber>;
 
     "releasable(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "releasable()"(overrides?: CallOverrides): Promise<BigNumber>;
 
     "release(address)"(
-      token: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      token: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
-    "release()"(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    "release()"(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
 
     "released()"(overrides?: CallOverrides): Promise<BigNumber>;
 
     "released(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     start(overrides?: CallOverrides): Promise<BigNumber>;
 
     "vestedAmount(uint64)"(
-      timestamp: PromiseOrValue<BigNumberish>,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "vestedAmount(address,uint64)"(
-      token: PromiseOrValue<string>,
-      timestamp: PromiseOrValue<BigNumberish>,
+      token: string,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
@@ -380,38 +374,38 @@ export interface VestingWallet extends BaseContract {
     end(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     "releasable(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     "releasable()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     "release(address)"(
-      token: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      token: string,
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     "release()"(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     "released()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     "released(address)"(
-      token: PromiseOrValue<string>,
+      token: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     start(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     "vestedAmount(uint64)"(
-      timestamp: PromiseOrValue<BigNumberish>,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     "vestedAmount(address,uint64)"(
-      token: PromiseOrValue<string>,
-      timestamp: PromiseOrValue<BigNumberish>,
+      token: string,
+      timestamp: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
