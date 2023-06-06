@@ -1,0 +1,104 @@
+{
+  "name": "ethers-types",
+  "version": "1.0.0",
+  "author": {
+    "name": "Romain (Rubilmax) Milon",
+    "email": "rmilon@gmail.com",
+    "url": "https://github.com/rubilmax"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "prebuild": "yarn clean && yarn typechain",
+    "build": "tsc --build ./tsconfig.build.json",
+    "clean": "rm -rf src/",
+    "typechain": "npx typechain --target ethers-v5 --out-dir src abis/**/*.json",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubilmax/ethers-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rubilmax/ethers-types/issues"
+  },
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "ethers",
+    "types",
+    "typescript",
+    "erc20",
+    "evm"
+  ],
+  "dependencies": {
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@typechain/ethers-v5": "^10.2.1",
+    "@types/node": "^20.2.5",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
+    "typechain": "^8.2.0",
+    "typescript": "5.0.4"
+  },
+  "peerDependencies": {
+    "ethers": "^5.7.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      "master",
+      "next"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "type": "build",
+              "scope": "deps",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "build",
+                "section": "Dependencies and Other Build Updates",
+                "hidden": false
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  }
+}

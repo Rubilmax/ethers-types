@@ -1,0 +1,12 @@
+name: Push
+
+on:
+  push:
+    branches:
+      - master
+      - next
+
+jobs:
+  release:
+    uses: ./.github/workflows/release.yml
+    secrets: inherit
