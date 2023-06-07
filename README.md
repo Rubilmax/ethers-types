@@ -53,8 +53,6 @@ dai.decimals().then(console.log);
 
 [build-img]: https://github.com/Rubilmax/ethers-types/actions/workflows/release.yml/badge.svg
 [build-url]: https://github.com/Rubilmax/ethers-types/actions/workflows/release.yml
-[test-img]: https://github.com/Rubilmax/ethers-types/actions/workflows/test.yml/badge.svg
-[test-url]: https://github.com/Rubilmax/ethers-types/actions/workflows/test.yml
 [downloads-img]: https://img.shields.io/npm/dt/ethers-types
 [downloads-url]: https://www.npmtrends.com/ethers-types
 [npm-img]: https://img.shields.io/npm/v/ethers-types
