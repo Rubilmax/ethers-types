@@ -4,8 +4,8 @@
 
 import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
-  PriceOracleSentinel,
-  PriceOracleSentinelInterface,
+  AaveV3PriceOracleSentinel,
+  AaveV3PriceOracleSentinelInterface,
 } from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/AaveV3PriceOracleSentinel";
 
 const _abi = [
@@ -149,12 +149,19 @@ const _abi = [
   },
 ] as const;
 
-export class PriceOracleSentinel__factory {
+export class AaveV3PriceOracleSentinel__factory {
   static readonly abi = _abi;
-  static createInterface(): PriceOracleSentinelInterface {
-    return new Interface(_abi) as PriceOracleSentinelInterface;
+  static createInterface(): AaveV3PriceOracleSentinelInterface {
+    return new Interface(_abi) as AaveV3PriceOracleSentinelInterface;
   }
-  static connect(address: string, runner?: ContractRunner | null): PriceOracleSentinel {
-    return new Contract(address, _abi, runner) as unknown as PriceOracleSentinel;
+  static connect(
+    address: string,
+    runner?: ContractRunner | null
+  ): AaveV3PriceOracleSentinel {
+    return new Contract(
+      address,
+      _abi,
+      runner
+    ) as unknown as AaveV3PriceOracleSentinel;
   }
 }

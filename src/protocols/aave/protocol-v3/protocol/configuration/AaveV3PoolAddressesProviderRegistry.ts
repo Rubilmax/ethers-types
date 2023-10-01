@@ -23,7 +23,8 @@ import type {
   TypedContractMethod,
 } from "../../../../../common";
 
-export interface PoolAddressesProviderRegistryInterface extends Interface {
+export interface AaveV3PoolAddressesProviderRegistryInterface
+  extends Interface {
   getFunction(
     nameOrSignature:
       | "getAddressesProviderAddressById"
@@ -143,11 +144,11 @@ export namespace OwnershipTransferredEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface PoolAddressesProviderRegistry extends BaseContract {
-  connect(runner?: ContractRunner | null): PoolAddressesProviderRegistry;
+export interface AaveV3PoolAddressesProviderRegistry extends BaseContract {
+  connect(runner?: ContractRunner | null): AaveV3PoolAddressesProviderRegistry;
   waitForDeployment(): Promise<this>;
 
-  interface: PoolAddressesProviderRegistryInterface;
+  interface: AaveV3PoolAddressesProviderRegistryInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,

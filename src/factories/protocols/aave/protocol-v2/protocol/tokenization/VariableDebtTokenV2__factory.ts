@@ -4,9 +4,9 @@
 
 import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
-  VariableDebtTokenV3,
-  VariableDebtTokenV3Interface,
-} from "../../../../../../protocols/aave/protocol-v2/protocol/tokenization/VariableDebtTokenV3";
+  VariableDebtTokenV2,
+  VariableDebtTokenV2Interface,
+} from "../../../../../../protocols/aave/protocol-v2/protocol/tokenization/VariableDebtTokenV2";
 
 const _abi = [
   {
@@ -667,19 +667,19 @@ const _abi = [
   },
 ] as const;
 
-export class VariableDebtTokenV3__factory {
+export class VariableDebtTokenV2__factory {
   static readonly abi = _abi;
-  static createInterface(): VariableDebtTokenV3Interface {
-    return new Interface(_abi) as VariableDebtTokenV3Interface;
+  static createInterface(): VariableDebtTokenV2Interface {
+    return new Interface(_abi) as VariableDebtTokenV2Interface;
   }
   static connect(
     address: string,
     runner?: ContractRunner | null
-  ): VariableDebtTokenV3 {
+  ): VariableDebtTokenV2 {
     return new Contract(
       address,
       _abi,
       runner
-    ) as unknown as VariableDebtTokenV3;
+    ) as unknown as VariableDebtTokenV2;
   }
 }

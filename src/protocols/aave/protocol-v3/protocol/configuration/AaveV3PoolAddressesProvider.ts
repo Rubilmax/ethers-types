@@ -22,7 +22,7 @@ import type {
   TypedContractMethod,
 } from "../../../../../common";
 
-export interface PoolAddressesProviderInterface extends Interface {
+export interface AaveV3PoolAddressesProviderInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "getACLAdmin"
@@ -409,11 +409,11 @@ export namespace ProxyCreatedEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface PoolAddressesProvider extends BaseContract {
-  connect(runner?: ContractRunner | null): PoolAddressesProvider;
+export interface AaveV3PoolAddressesProvider extends BaseContract {
+  connect(runner?: ContractRunner | null): AaveV3PoolAddressesProvider;
   waitForDeployment(): Promise<this>;
 
-  interface: PoolAddressesProviderInterface;
+  interface: AaveV3PoolAddressesProviderInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,

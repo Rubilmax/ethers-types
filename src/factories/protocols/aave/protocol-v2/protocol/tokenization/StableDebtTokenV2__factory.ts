@@ -4,9 +4,9 @@
 
 import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
-  StableDebtTokenV3,
-  StableDebtTokenV3Interface,
-} from "../../../../../../protocols/aave/protocol-v2/protocol/tokenization/StableDebtTokenV3";
+  StableDebtTokenV2,
+  StableDebtTokenV2Interface,
+} from "../../../../../../protocols/aave/protocol-v2/protocol/tokenization/StableDebtTokenV2";
 
 const _abi = [
   {
@@ -777,15 +777,15 @@ const _abi = [
   },
 ] as const;
 
-export class StableDebtTokenV3__factory {
+export class StableDebtTokenV2__factory {
   static readonly abi = _abi;
-  static createInterface(): StableDebtTokenV3Interface {
-    return new Interface(_abi) as StableDebtTokenV3Interface;
+  static createInterface(): StableDebtTokenV2Interface {
+    return new Interface(_abi) as StableDebtTokenV2Interface;
   }
   static connect(
     address: string,
     runner?: ContractRunner | null
-  ): StableDebtTokenV3 {
-    return new Contract(address, _abi, runner) as unknown as StableDebtTokenV3;
+  ): StableDebtTokenV2 {
+    return new Contract(address, _abi, runner) as unknown as StableDebtTokenV2;
   }
 }

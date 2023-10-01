@@ -22,7 +22,7 @@ import type {
   TypedContractMethod,
 } from "../../../../../common";
 
-export interface ACLManagerInterface extends Interface {
+export interface AaveV3ACLManagerInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "ADDRESSES_PROVIDER"
@@ -374,11 +374,11 @@ export namespace RoleRevokedEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface ACLManager extends BaseContract {
-  connect(runner?: ContractRunner | null): ACLManager;
+export interface AaveV3ACLManager extends BaseContract {
+  connect(runner?: ContractRunner | null): AaveV3ACLManager;
   waitForDeployment(): Promise<this>;
 
-  interface: ACLManagerInterface;
+  interface: AaveV3ACLManagerInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,

@@ -23,7 +23,7 @@ import type {
   TypedContractMethod,
 } from "../../../../../common";
 
-export interface PriceOracleSentinelInterface extends Interface {
+export interface AaveV3PriceOracleSentinelInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "ADDRESSES_PROVIDER"
@@ -122,11 +122,11 @@ export namespace SequencerOracleUpdatedEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface PriceOracleSentinel extends BaseContract {
-  connect(runner?: ContractRunner | null): PriceOracleSentinel;
+export interface AaveV3PriceOracleSentinel extends BaseContract {
+  connect(runner?: ContractRunner | null): AaveV3PriceOracleSentinel;
   waitForDeployment(): Promise<this>;
 
-  interface: PriceOracleSentinelInterface;
+  interface: AaveV3PriceOracleSentinelInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,

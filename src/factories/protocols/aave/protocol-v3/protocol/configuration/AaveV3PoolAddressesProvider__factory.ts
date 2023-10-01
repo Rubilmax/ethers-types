@@ -4,9 +4,9 @@
 
 import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
-  PoolAddressesProvider,
-  PoolAddressesProviderInterface,
-} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/AaveV2PoolAddressesProvider";
+  AaveV3PoolAddressesProvider,
+  AaveV3PoolAddressesProviderInterface,
+} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/AaveV3PoolAddressesProvider";
 
 const _abi = [
   {
@@ -575,12 +575,19 @@ const _abi = [
   },
 ] as const;
 
-export class PoolAddressesProvider__factory {
+export class AaveV3PoolAddressesProvider__factory {
   static readonly abi = _abi;
-  static createInterface(): PoolAddressesProviderInterface {
-    return new Interface(_abi) as PoolAddressesProviderInterface;
+  static createInterface(): AaveV3PoolAddressesProviderInterface {
+    return new Interface(_abi) as AaveV3PoolAddressesProviderInterface;
   }
-  static connect(address: string, runner?: ContractRunner | null): PoolAddressesProvider {
-    return new Contract(address, _abi, runner) as unknown as PoolAddressesProvider;
+  static connect(
+    address: string,
+    runner?: ContractRunner | null
+  ): AaveV3PoolAddressesProvider {
+    return new Contract(
+      address,
+      _abi,
+      runner
+    ) as unknown as AaveV3PoolAddressesProvider;
   }
 }

@@ -23,7 +23,7 @@ import type {
   TypedContractMethod,
 } from "../../../../../common";
 
-export interface StableDebtTokenV3Interface extends Interface {
+export interface StableDebtTokenV2Interface extends Interface {
   getFunction(
     nameOrSignature:
       | "DEBT_TOKEN_REVISION"
@@ -410,11 +410,11 @@ export namespace TransferEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface StableDebtTokenV3 extends BaseContract {
-  connect(runner?: ContractRunner | null): StableDebtTokenV3;
+export interface StableDebtTokenV2 extends BaseContract {
+  connect(runner?: ContractRunner | null): StableDebtTokenV2;
   waitForDeployment(): Promise<this>;
 
-  interface: StableDebtTokenV3Interface;
+  interface: StableDebtTokenV2Interface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,

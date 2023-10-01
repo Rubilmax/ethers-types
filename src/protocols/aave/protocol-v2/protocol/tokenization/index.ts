@@ -3,5 +3,5 @@
 /* eslint-disable */
 export type { ATokenV2 } from "./ATokenV2";
 export type { DelegationAwareATokenV2 } from "./DelegationAwareATokenV2";
-export type { StableDebtTokenV3 } from "./StableDebtTokenV3";
-export type { VariableDebtTokenV3 } from "./VariableDebtTokenV3";
+export type { StableDebtTokenV2 } from "./StableDebtTokenV2";
+export type { VariableDebtTokenV2 } from "./VariableDebtTokenV2";
