@@ -6,7 +6,7 @@ import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
   PriceOracleSentinel,
   PriceOracleSentinelInterface,
-} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/PriceOracleSentinel";
+} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/AaveV3PriceOracleSentinel";
 
 const _abi = [
   {
@@ -154,14 +154,7 @@ export class PriceOracleSentinel__factory {
   static createInterface(): PriceOracleSentinelInterface {
     return new Interface(_abi) as PriceOracleSentinelInterface;
   }
-  static connect(
-    address: string,
-    runner?: ContractRunner | null
-  ): PriceOracleSentinel {
-    return new Contract(
-      address,
-      _abi,
-      runner
-    ) as unknown as PriceOracleSentinel;
+  static connect(address: string, runner?: ContractRunner | null): PriceOracleSentinel {
+    return new Contract(address, _abi, runner) as unknown as PriceOracleSentinel;
   }
 }

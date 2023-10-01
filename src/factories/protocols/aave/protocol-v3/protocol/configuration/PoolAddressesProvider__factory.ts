@@ -6,7 +6,7 @@ import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
   PoolAddressesProvider,
   PoolAddressesProviderInterface,
-} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/PoolAddressesProvider";
+} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/AaveV2PoolAddressesProvider";
 
 const _abi = [
   {
@@ -580,14 +580,7 @@ export class PoolAddressesProvider__factory {
   static createInterface(): PoolAddressesProviderInterface {
     return new Interface(_abi) as PoolAddressesProviderInterface;
   }
-  static connect(
-    address: string,
-    runner?: ContractRunner | null
-  ): PoolAddressesProvider {
-    return new Contract(
-      address,
-      _abi,
-      runner
-    ) as unknown as PoolAddressesProvider;
+  static connect(address: string, runner?: ContractRunner | null): PoolAddressesProvider {
+    return new Contract(address, _abi, runner) as unknown as PoolAddressesProvider;
   }
 }

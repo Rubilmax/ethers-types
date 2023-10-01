@@ -6,7 +6,7 @@ import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
   ACLManager,
   ACLManagerInterface,
-} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/ACLManager";
+} from "../../../../../../protocols/aave/protocol-v3/protocol/configuration/AaveV3ACLManager";
 
 const _abi = [
   {
