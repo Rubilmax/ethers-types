@@ -1,6 +1,6 @@
 {
   "name": "ethers-types",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": {
     "name": "Romain (Rubilmax) Milon",
     "email": "rmilon@gmail.com",
@@ -15,7 +15,7 @@
     "prebuild": "yarn clean && yarn typechain",
     "build": "tsc --build ./tsconfig.build.json",
     "clean": "rm -rf src/",
-    "typechain": "npx typechain --target ethers-v5 --out-dir src abis/**/**/**/**/**/**/*.json",
+    "typechain": "npx typechain --target ethers-v6 --out-dir src abis/**/**/**/**/**/**/*.json",
     "prepare": "husky install"
   },
   "repository": {
@@ -35,19 +35,19 @@
     "evm"
   ],
   "dependencies": {
-    "ethers": "^5.7.2"
+    "ethers": "^6.7.1"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
-    "@typechain/ethers-v5": "^11.0.0",
-    "@types/node": "^20.3.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@types/node": "^20.8.0",
     "commitizen": "^4.3.0",
-    "conventional-changelog-conventionalcommits": "^6.0.0",
+    "conventional-changelog-conventionalcommits": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
-    "typechain": "^8.2.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "typechain": "^8.3.1",
     "typescript": "5.1.3"
   },
   "peerDependencies": {
