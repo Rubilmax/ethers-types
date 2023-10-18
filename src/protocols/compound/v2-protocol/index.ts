@@ -3,5 +3,6 @@
 /* eslint-disable */
 export type { CErc20 } from "./CErc20";
 export type { CEther } from "./CEther";
+export type { CompoundOracle } from "./CompoundOracle";
 export type { Comptroller } from "./Comptroller";
 export type { ComptrollerG7 } from "./ComptrollerG7";

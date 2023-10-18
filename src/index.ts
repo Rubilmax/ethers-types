@@ -188,6 +188,8 @@ export type { CErc20 } from "./protocols/compound/v2-protocol/CErc20";
 export { CErc20__factory } from "./factories/protocols/compound/v2-protocol/CErc20__factory";
 export type { CEther } from "./protocols/compound/v2-protocol/CEther";
 export { CEther__factory } from "./factories/protocols/compound/v2-protocol/CEther__factory";
+export type { CompoundOracle } from "./protocols/compound/v2-protocol/CompoundOracle";
+export { CompoundOracle__factory } from "./factories/protocols/compound/v2-protocol/CompoundOracle__factory";
 export type { Comptroller } from "./protocols/compound/v2-protocol/Comptroller";
 export { Comptroller__factory } from "./factories/protocols/compound/v2-protocol/Comptroller__factory";
 export type { ComptrollerG7 } from "./protocols/compound/v2-protocol/ComptrollerG7";
