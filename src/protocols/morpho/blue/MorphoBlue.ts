@@ -8,6 +8,7 @@ import type {
   FunctionFragment,
   Result,
   Interface,
+  EventFragment,
   AddressLike,
   ContractRunner,
   ContractMethod,
@@ -17,6 +18,7 @@ import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
   TypedEventLog,
+  TypedLogDescription,
   TypedListener,
   TypedContractMethod,
 } from "../../../common";
@@ -77,6 +79,7 @@ export interface MorphoBlueInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "DOMAIN_SEPARATOR"
+      | "accrueInterest"
       | "borrow"
       | "createMarket"
       | "enableIrm"
@@ -105,9 +108,34 @@ export interface MorphoBlueInterface extends Interface {
       | "withdrawCollateral"
   ): FunctionFragment;
 
+  getEvent(
+    nameOrSignatureOrTopic:
+      | "AccrueInterest"
+      | "Borrow"
+      | "CreateMarket"
+      | "EnableIrm"
+      | "EnableLltv"
+      | "FlashLoan"
+      | "IncrementNonce"
+      | "Liquidate"
+      | "Repay"
+      | "SetAuthorization"
+      | "SetFee"
+      | "SetFeeRecipient"
+      | "SetOwner"
+      | "Supply"
+      | "SupplyCollateral"
+      | "Withdraw"
+      | "WithdrawCollateral"
+  ): EventFragment;
+
   encodeFunctionData(
     functionFragment: "DOMAIN_SEPARATOR",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "accrueInterest",
+    values: [MarketParamsStruct]
   ): string;
   encodeFunctionData(
     functionFragment: "borrow",
@@ -239,6 +267,10 @@ export interface MorphoBlueInterface extends Interface {
     functionFragment: "DOMAIN_SEPARATOR",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "accrueInterest",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "borrow", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "createMarket",
@@ -300,6 +332,381 @@ export interface MorphoBlueInterface extends Interface {
   ): Result;
 }
 
+export namespace AccrueInterestEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    prevBorrowRate: BigNumberish,
+    interest: BigNumberish,
+    feeShares: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    prevBorrowRate: bigint,
+    interest: bigint,
+    feeShares: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    prevBorrowRate: bigint;
+    interest: bigint;
+    feeShares: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace BorrowEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    caller: AddressLike,
+    onBehalf: AddressLike,
+    receiver: AddressLike,
+    assets: BigNumberish,
+    shares: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    caller: string,
+    onBehalf: string,
+    receiver: string,
+    assets: bigint,
+    shares: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    caller: string;
+    onBehalf: string;
+    receiver: string;
+    assets: bigint;
+    shares: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace CreateMarketEvent {
+  export type InputTuple = [id: BytesLike, marketParams: MarketParamsStruct];
+  export type OutputTuple = [
+    id: string,
+    marketParams: MarketParamsStructOutput
+  ];
+  export interface OutputObject {
+    id: string;
+    marketParams: MarketParamsStructOutput;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace EnableIrmEvent {
+  export type InputTuple = [irm: AddressLike];
+  export type OutputTuple = [irm: string];
+  export interface OutputObject {
+    irm: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace EnableLltvEvent {
+  export type InputTuple = [lltv: BigNumberish];
+  export type OutputTuple = [lltv: bigint];
+  export interface OutputObject {
+    lltv: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace FlashLoanEvent {
+  export type InputTuple = [
+    caller: AddressLike,
+    token: AddressLike,
+    assets: BigNumberish
+  ];
+  export type OutputTuple = [caller: string, token: string, assets: bigint];
+  export interface OutputObject {
+    caller: string;
+    token: string;
+    assets: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace IncrementNonceEvent {
+  export type InputTuple = [
+    caller: AddressLike,
+    authorizer: AddressLike,
+    usedNonce: BigNumberish
+  ];
+  export type OutputTuple = [
+    caller: string,
+    authorizer: string,
+    usedNonce: bigint
+  ];
+  export interface OutputObject {
+    caller: string;
+    authorizer: string;
+    usedNonce: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace LiquidateEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    caller: AddressLike,
+    borrower: AddressLike,
+    repaidAssets: BigNumberish,
+    repaidShares: BigNumberish,
+    seizedAssets: BigNumberish,
+    badDebtAssets: BigNumberish,
+    badDebtShares: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    caller: string,
+    borrower: string,
+    repaidAssets: bigint,
+    repaidShares: bigint,
+    seizedAssets: bigint,
+    badDebtAssets: bigint,
+    badDebtShares: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    caller: string;
+    borrower: string;
+    repaidAssets: bigint;
+    repaidShares: bigint;
+    seizedAssets: bigint;
+    badDebtAssets: bigint;
+    badDebtShares: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace RepayEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    caller: AddressLike,
+    onBehalf: AddressLike,
+    assets: BigNumberish,
+    shares: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    caller: string,
+    onBehalf: string,
+    assets: bigint,
+    shares: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    caller: string;
+    onBehalf: string;
+    assets: bigint;
+    shares: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace SetAuthorizationEvent {
+  export type InputTuple = [
+    caller: AddressLike,
+    authorizer: AddressLike,
+    authorized: AddressLike,
+    newIsAuthorized: boolean
+  ];
+  export type OutputTuple = [
+    caller: string,
+    authorizer: string,
+    authorized: string,
+    newIsAuthorized: boolean
+  ];
+  export interface OutputObject {
+    caller: string;
+    authorizer: string;
+    authorized: string;
+    newIsAuthorized: boolean;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace SetFeeEvent {
+  export type InputTuple = [id: BytesLike, newFee: BigNumberish];
+  export type OutputTuple = [id: string, newFee: bigint];
+  export interface OutputObject {
+    id: string;
+    newFee: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace SetFeeRecipientEvent {
+  export type InputTuple = [newFeeRecipient: AddressLike];
+  export type OutputTuple = [newFeeRecipient: string];
+  export interface OutputObject {
+    newFeeRecipient: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace SetOwnerEvent {
+  export type InputTuple = [newOwner: AddressLike];
+  export type OutputTuple = [newOwner: string];
+  export interface OutputObject {
+    newOwner: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace SupplyEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    caller: AddressLike,
+    onBehalf: AddressLike,
+    assets: BigNumberish,
+    shares: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    caller: string,
+    onBehalf: string,
+    assets: bigint,
+    shares: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    caller: string;
+    onBehalf: string;
+    assets: bigint;
+    shares: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace SupplyCollateralEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    caller: AddressLike,
+    onBehalf: AddressLike,
+    assets: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    caller: string,
+    onBehalf: string,
+    assets: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    caller: string;
+    onBehalf: string;
+    assets: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace WithdrawEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    caller: AddressLike,
+    onBehalf: AddressLike,
+    receiver: AddressLike,
+    assets: BigNumberish,
+    shares: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    caller: string,
+    onBehalf: string,
+    receiver: string,
+    assets: bigint,
+    shares: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    caller: string;
+    onBehalf: string;
+    receiver: string;
+    assets: bigint;
+    shares: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace WithdrawCollateralEvent {
+  export type InputTuple = [
+    id: BytesLike,
+    caller: AddressLike,
+    onBehalf: AddressLike,
+    receiver: AddressLike,
+    assets: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: string,
+    caller: string,
+    onBehalf: string,
+    receiver: string,
+    assets: bigint
+  ];
+  export interface OutputObject {
+    id: string;
+    caller: string;
+    onBehalf: string;
+    receiver: string;
+    assets: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
 export interface MorphoBlue extends BaseContract {
   connect(runner?: ContractRunner | null): MorphoBlue;
   waitForDeployment(): Promise<this>;
@@ -344,6 +751,12 @@ export interface MorphoBlue extends BaseContract {
   ): Promise<this>;
 
   DOMAIN_SEPARATOR: TypedContractMethod<[], [string], "view">;
+
+  accrueInterest: TypedContractMethod<
+    [marketParams: MarketParamsStruct],
+    [void],
+    "nonpayable"
+  >;
 
   borrow: TypedContractMethod<
     [
@@ -535,6 +948,13 @@ export interface MorphoBlue extends BaseContract {
   getFunction(
     nameOrSignature: "DOMAIN_SEPARATOR"
   ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "accrueInterest"
+  ): TypedContractMethod<
+    [marketParams: MarketParamsStruct],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "borrow"
   ): TypedContractMethod<
@@ -741,5 +1161,312 @@ export interface MorphoBlue extends BaseContract {
     "nonpayable"
   >;
 
-  filters: {};
+  getEvent(
+    key: "AccrueInterest"
+  ): TypedContractEvent<
+    AccrueInterestEvent.InputTuple,
+    AccrueInterestEvent.OutputTuple,
+    AccrueInterestEvent.OutputObject
+  >;
+  getEvent(
+    key: "Borrow"
+  ): TypedContractEvent<
+    BorrowEvent.InputTuple,
+    BorrowEvent.OutputTuple,
+    BorrowEvent.OutputObject
+  >;
+  getEvent(
+    key: "CreateMarket"
+  ): TypedContractEvent<
+    CreateMarketEvent.InputTuple,
+    CreateMarketEvent.OutputTuple,
+    CreateMarketEvent.OutputObject
+  >;
+  getEvent(
+    key: "EnableIrm"
+  ): TypedContractEvent<
+    EnableIrmEvent.InputTuple,
+    EnableIrmEvent.OutputTuple,
+    EnableIrmEvent.OutputObject
+  >;
+  getEvent(
+    key: "EnableLltv"
+  ): TypedContractEvent<
+    EnableLltvEvent.InputTuple,
+    EnableLltvEvent.OutputTuple,
+    EnableLltvEvent.OutputObject
+  >;
+  getEvent(
+    key: "FlashLoan"
+  ): TypedContractEvent<
+    FlashLoanEvent.InputTuple,
+    FlashLoanEvent.OutputTuple,
+    FlashLoanEvent.OutputObject
+  >;
+  getEvent(
+    key: "IncrementNonce"
+  ): TypedContractEvent<
+    IncrementNonceEvent.InputTuple,
+    IncrementNonceEvent.OutputTuple,
+    IncrementNonceEvent.OutputObject
+  >;
+  getEvent(
+    key: "Liquidate"
+  ): TypedContractEvent<
+    LiquidateEvent.InputTuple,
+    LiquidateEvent.OutputTuple,
+    LiquidateEvent.OutputObject
+  >;
+  getEvent(
+    key: "Repay"
+  ): TypedContractEvent<
+    RepayEvent.InputTuple,
+    RepayEvent.OutputTuple,
+    RepayEvent.OutputObject
+  >;
+  getEvent(
+    key: "SetAuthorization"
+  ): TypedContractEvent<
+    SetAuthorizationEvent.InputTuple,
+    SetAuthorizationEvent.OutputTuple,
+    SetAuthorizationEvent.OutputObject
+  >;
+  getEvent(
+    key: "SetFee"
+  ): TypedContractEvent<
+    SetFeeEvent.InputTuple,
+    SetFeeEvent.OutputTuple,
+    SetFeeEvent.OutputObject
+  >;
+  getEvent(
+    key: "SetFeeRecipient"
+  ): TypedContractEvent<
+    SetFeeRecipientEvent.InputTuple,
+    SetFeeRecipientEvent.OutputTuple,
+    SetFeeRecipientEvent.OutputObject
+  >;
+  getEvent(
+    key: "SetOwner"
+  ): TypedContractEvent<
+    SetOwnerEvent.InputTuple,
+    SetOwnerEvent.OutputTuple,
+    SetOwnerEvent.OutputObject
+  >;
+  getEvent(
+    key: "Supply"
+  ): TypedContractEvent<
+    SupplyEvent.InputTuple,
+    SupplyEvent.OutputTuple,
+    SupplyEvent.OutputObject
+  >;
+  getEvent(
+    key: "SupplyCollateral"
+  ): TypedContractEvent<
+    SupplyCollateralEvent.InputTuple,
+    SupplyCollateralEvent.OutputTuple,
+    SupplyCollateralEvent.OutputObject
+  >;
+  getEvent(
+    key: "Withdraw"
+  ): TypedContractEvent<
+    WithdrawEvent.InputTuple,
+    WithdrawEvent.OutputTuple,
+    WithdrawEvent.OutputObject
+  >;
+  getEvent(
+    key: "WithdrawCollateral"
+  ): TypedContractEvent<
+    WithdrawCollateralEvent.InputTuple,
+    WithdrawCollateralEvent.OutputTuple,
+    WithdrawCollateralEvent.OutputObject
+  >;
+
+  filters: {
+    "AccrueInterest(bytes32,uint256,uint256,uint256)": TypedContractEvent<
+      AccrueInterestEvent.InputTuple,
+      AccrueInterestEvent.OutputTuple,
+      AccrueInterestEvent.OutputObject
+    >;
+    AccrueInterest: TypedContractEvent<
+      AccrueInterestEvent.InputTuple,
+      AccrueInterestEvent.OutputTuple,
+      AccrueInterestEvent.OutputObject
+    >;
+
+    "Borrow(bytes32,address,address,address,uint256,uint256)": TypedContractEvent<
+      BorrowEvent.InputTuple,
+      BorrowEvent.OutputTuple,
+      BorrowEvent.OutputObject
+    >;
+    Borrow: TypedContractEvent<
+      BorrowEvent.InputTuple,
+      BorrowEvent.OutputTuple,
+      BorrowEvent.OutputObject
+    >;
+
+    "CreateMarket(bytes32,tuple)": TypedContractEvent<
+      CreateMarketEvent.InputTuple,
+      CreateMarketEvent.OutputTuple,
+      CreateMarketEvent.OutputObject
+    >;
+    CreateMarket: TypedContractEvent<
+      CreateMarketEvent.InputTuple,
+      CreateMarketEvent.OutputTuple,
+      CreateMarketEvent.OutputObject
+    >;
+
+    "EnableIrm(address)": TypedContractEvent<
+      EnableIrmEvent.InputTuple,
+      EnableIrmEvent.OutputTuple,
+      EnableIrmEvent.OutputObject
+    >;
+    EnableIrm: TypedContractEvent<
+      EnableIrmEvent.InputTuple,
+      EnableIrmEvent.OutputTuple,
+      EnableIrmEvent.OutputObject
+    >;
+
+    "EnableLltv(uint256)": TypedContractEvent<
+      EnableLltvEvent.InputTuple,
+      EnableLltvEvent.OutputTuple,
+      EnableLltvEvent.OutputObject
+    >;
+    EnableLltv: TypedContractEvent<
+      EnableLltvEvent.InputTuple,
+      EnableLltvEvent.OutputTuple,
+      EnableLltvEvent.OutputObject
+    >;
+
+    "FlashLoan(address,address,uint256)": TypedContractEvent<
+      FlashLoanEvent.InputTuple,
+      FlashLoanEvent.OutputTuple,
+      FlashLoanEvent.OutputObject
+    >;
+    FlashLoan: TypedContractEvent<
+      FlashLoanEvent.InputTuple,
+      FlashLoanEvent.OutputTuple,
+      FlashLoanEvent.OutputObject
+    >;
+
+    "IncrementNonce(address,address,uint256)": TypedContractEvent<
+      IncrementNonceEvent.InputTuple,
+      IncrementNonceEvent.OutputTuple,
+      IncrementNonceEvent.OutputObject
+    >;
+    IncrementNonce: TypedContractEvent<
+      IncrementNonceEvent.InputTuple,
+      IncrementNonceEvent.OutputTuple,
+      IncrementNonceEvent.OutputObject
+    >;
+
+    "Liquidate(bytes32,address,address,uint256,uint256,uint256,uint256,uint256)": TypedContractEvent<
+      LiquidateEvent.InputTuple,
+      LiquidateEvent.OutputTuple,
+      LiquidateEvent.OutputObject
+    >;
+    Liquidate: TypedContractEvent<
+      LiquidateEvent.InputTuple,
+      LiquidateEvent.OutputTuple,
+      LiquidateEvent.OutputObject
+    >;
+
+    "Repay(bytes32,address,address,uint256,uint256)": TypedContractEvent<
+      RepayEvent.InputTuple,
+      RepayEvent.OutputTuple,
+      RepayEvent.OutputObject
+    >;
+    Repay: TypedContractEvent<
+      RepayEvent.InputTuple,
+      RepayEvent.OutputTuple,
+      RepayEvent.OutputObject
+    >;
+
+    "SetAuthorization(address,address,address,bool)": TypedContractEvent<
+      SetAuthorizationEvent.InputTuple,
+      SetAuthorizationEvent.OutputTuple,
+      SetAuthorizationEvent.OutputObject
+    >;
+    SetAuthorization: TypedContractEvent<
+      SetAuthorizationEvent.InputTuple,
+      SetAuthorizationEvent.OutputTuple,
+      SetAuthorizationEvent.OutputObject
+    >;
+
+    "SetFee(bytes32,uint256)": TypedContractEvent<
+      SetFeeEvent.InputTuple,
+      SetFeeEvent.OutputTuple,
+      SetFeeEvent.OutputObject
+    >;
+    SetFee: TypedContractEvent<
+      SetFeeEvent.InputTuple,
+      SetFeeEvent.OutputTuple,
+      SetFeeEvent.OutputObject
+    >;
+
+    "SetFeeRecipient(address)": TypedContractEvent<
+      SetFeeRecipientEvent.InputTuple,
+      SetFeeRecipientEvent.OutputTuple,
+      SetFeeRecipientEvent.OutputObject
+    >;
+    SetFeeRecipient: TypedContractEvent<
+      SetFeeRecipientEvent.InputTuple,
+      SetFeeRecipientEvent.OutputTuple,
+      SetFeeRecipientEvent.OutputObject
+    >;
+
+    "SetOwner(address)": TypedContractEvent<
+      SetOwnerEvent.InputTuple,
+      SetOwnerEvent.OutputTuple,
+      SetOwnerEvent.OutputObject
+    >;
+    SetOwner: TypedContractEvent<
+      SetOwnerEvent.InputTuple,
+      SetOwnerEvent.OutputTuple,
+      SetOwnerEvent.OutputObject
+    >;
+
+    "Supply(bytes32,address,address,uint256,uint256)": TypedContractEvent<
+      SupplyEvent.InputTuple,
+      SupplyEvent.OutputTuple,
+      SupplyEvent.OutputObject
+    >;
+    Supply: TypedContractEvent<
+      SupplyEvent.InputTuple,
+      SupplyEvent.OutputTuple,
+      SupplyEvent.OutputObject
+    >;
+
+    "SupplyCollateral(bytes32,address,address,uint256)": TypedContractEvent<
+      SupplyCollateralEvent.InputTuple,
+      SupplyCollateralEvent.OutputTuple,
+      SupplyCollateralEvent.OutputObject
+    >;
+    SupplyCollateral: TypedContractEvent<
+      SupplyCollateralEvent.InputTuple,
+      SupplyCollateralEvent.OutputTuple,
+      SupplyCollateralEvent.OutputObject
+    >;
+
+    "Withdraw(bytes32,address,address,address,uint256,uint256)": TypedContractEvent<
+      WithdrawEvent.InputTuple,
+      WithdrawEvent.OutputTuple,
+      WithdrawEvent.OutputObject
+    >;
+    Withdraw: TypedContractEvent<
+      WithdrawEvent.InputTuple,
+      WithdrawEvent.OutputTuple,
+      WithdrawEvent.OutputObject
+    >;
+
+    "WithdrawCollateral(bytes32,address,address,address,uint256)": TypedContractEvent<
+      WithdrawCollateralEvent.InputTuple,
+      WithdrawCollateralEvent.OutputTuple,
+      WithdrawCollateralEvent.OutputObject
+    >;
+    WithdrawCollateral: TypedContractEvent<
+      WithdrawCollateralEvent.InputTuple,
+      WithdrawCollateralEvent.OutputTuple,
+      WithdrawCollateralEvent.OutputObject
+    >;
+  };
 }
