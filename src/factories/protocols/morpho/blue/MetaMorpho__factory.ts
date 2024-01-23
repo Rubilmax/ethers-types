@@ -232,7 +232,7 @@ const _abi = [
       {
         name: "",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     outputs: [
@@ -627,7 +627,7 @@ const _abi = [
       {
         name: "",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     outputs: [
@@ -907,7 +907,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     outputs: [],
@@ -927,7 +927,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     outputs: [],
@@ -1174,7 +1174,7 @@ const _abi = [
       {
         name: "",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     stateMutability: "view",
@@ -1366,7 +1366,7 @@ const _abi = [
       {
         name: "",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     stateMutability: "view",
@@ -1517,7 +1517,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "Id",
+        internalType: "bytes32",
       },
       {
         name: "suppliedAssets",
@@ -1548,7 +1548,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "Id",
+        internalType: "bytes32",
       },
       {
         name: "withdrawnAssets",
@@ -1579,7 +1579,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     anonymous: false,
@@ -1611,7 +1611,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     anonymous: false,
@@ -1643,7 +1643,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "Id",
+        internalType: "bytes32",
       },
       {
         name: "cap",
@@ -1846,7 +1846,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "Id",
+        internalType: "bytes32",
       },
       {
         name: "cap",
@@ -1884,7 +1884,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
     anonymous: false,
@@ -2031,7 +2031,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2271,7 +2271,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2303,7 +2303,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2314,7 +2314,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2325,7 +2325,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2346,7 +2346,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2429,7 +2429,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2483,7 +2483,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },
@@ -2499,7 +2499,7 @@ const _abi = [
       {
         name: "id",
         type: "bytes32",
-        internalType: "Id",
+        internalType: "bytes32",
       },
     ],
   },

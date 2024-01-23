@@ -13,7 +13,7 @@
     {
         "inputs": [
             {
-                "internalType": "Id",
+                "internalType": "bytes32",
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true
@@ -217,7 +217,7 @@
     {
         "inputs": [
             {
-                "internalType": "Id",
+                "internalType": "bytes32",
                 "name": "",
                 "type": "bytes32"
             }

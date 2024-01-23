@@ -23,7 +23,7 @@ const _abi = [
   {
     inputs: [
       {
-        internalType: "Id",
+        internalType: "bytes32",
         name: "id",
         type: "bytes32",
         indexed: true,
@@ -227,7 +227,7 @@ const _abi = [
   {
     inputs: [
       {
-        internalType: "Id",
+        internalType: "bytes32",
         name: "",
         type: "bytes32",
       },
