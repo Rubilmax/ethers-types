@@ -17,7 +17,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "prevBorrowRate",
@@ -48,7 +48,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "caller",
@@ -91,7 +91,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "marketParams",
@@ -213,7 +213,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "caller",
@@ -268,7 +268,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "caller",
@@ -336,7 +336,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "newFee",
@@ -381,7 +381,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "caller",
@@ -418,7 +418,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "caller",
@@ -449,7 +449,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "caller",
@@ -492,7 +492,7 @@ const _abi = [
         name: "id",
         type: "bytes32",
         indexed: true,
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "caller",
@@ -784,7 +784,7 @@ const _abi = [
       {
         name: "",
         type: "bytes32",
-        internalType: "bytes32",
+        internalType: "Id",
       },
     ],
     outputs: [
@@ -956,7 +956,7 @@ const _abi = [
       {
         name: "",
         type: "bytes32",
-        internalType: "bytes32",
+        internalType: "Id",
       },
     ],
     outputs: [
@@ -1032,7 +1032,7 @@ const _abi = [
       {
         name: "",
         type: "bytes32",
-        internalType: "bytes32",
+        internalType: "Id",
       },
       {
         name: "",

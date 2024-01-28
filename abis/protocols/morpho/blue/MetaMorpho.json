@@ -222,7 +222,7 @@
             {
                 "name": "",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "outputs": [
@@ -617,7 +617,7 @@
             {
                 "name": "",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "outputs": [
@@ -897,7 +897,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "outputs": [],
@@ -917,7 +917,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "outputs": [],
@@ -1164,7 +1164,7 @@
             {
                 "name": "",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "stateMutability": "view"
@@ -1356,7 +1356,7 @@
             {
                 "name": "",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "stateMutability": "view"
@@ -1507,7 +1507,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "suppliedAssets",
@@ -1538,7 +1538,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "withdrawnAssets",
@@ -1569,7 +1569,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "anonymous": false
@@ -1601,7 +1601,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "anonymous": false
@@ -1633,7 +1633,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "cap",
@@ -1836,7 +1836,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "cap",
@@ -1874,7 +1874,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "anonymous": false
@@ -2021,7 +2021,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2261,7 +2261,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2293,7 +2293,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2304,7 +2304,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2315,7 +2315,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2336,7 +2336,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2419,7 +2419,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2473,7 +2473,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },
@@ -2489,7 +2489,7 @@
             {
                 "name": "id",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ]
     },

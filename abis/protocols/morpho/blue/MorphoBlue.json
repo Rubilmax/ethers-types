@@ -7,7 +7,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "prevBorrowRate",
@@ -38,7 +38,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "caller",
@@ -81,7 +81,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "marketParams",
@@ -203,7 +203,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "caller",
@@ -258,7 +258,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "caller",
@@ -326,7 +326,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "newFee",
@@ -371,7 +371,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "caller",
@@ -408,7 +408,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "caller",
@@ -439,7 +439,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "caller",
@@ -482,7 +482,7 @@
                 "name": "id",
                 "type": "bytes32",
                 "indexed": true,
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "caller",
@@ -774,7 +774,7 @@
             {
                 "name": "",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "outputs": [
@@ -946,7 +946,7 @@
             {
                 "name": "",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             }
         ],
         "outputs": [
@@ -1022,7 +1022,7 @@
             {
                 "name": "",
                 "type": "bytes32",
-                "internalType": "bytes32"
+                "internalType": "Id"
             },
             {
                 "name": "",
