@@ -2,6 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export * as aave from "./aave";
+export * as chainlink from "./chainlink";
 export * as compound from "./compound";
 export * as morpho from "./morpho";
 export * as uniswap from "./uniswap";

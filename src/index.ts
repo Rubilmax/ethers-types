@@ -184,6 +184,10 @@ export type { StableDebtTokenV3 } from "./protocols/aave/protocol-v3/protocol/to
 export { StableDebtTokenV3__factory } from "./factories/protocols/aave/protocol-v3/protocol/tokenization/StableDebtTokenV3__factory";
 export type { VariableDebtTokenV3 } from "./protocols/aave/protocol-v3/protocol/tokenization/VariableDebtTokenV3";
 export { VariableDebtTokenV3__factory } from "./factories/protocols/aave/protocol-v3/protocol/tokenization/VariableDebtTokenV3__factory";
+export type { AccessControlledOffchainAggregator } from "./protocols/chainlink/AccessControlledOffchainAggregator";
+export { AccessControlledOffchainAggregator__factory } from "./factories/protocols/chainlink/AccessControlledOffchainAggregator__factory";
+export type { EACAggregatorProxy } from "./protocols/chainlink/EACAggregatorProxy";
+export { EACAggregatorProxy__factory } from "./factories/protocols/chainlink/EACAggregatorProxy__factory";
 export type { CErc20 } from "./protocols/compound/v2-protocol/CErc20";
 export { CErc20__factory } from "./factories/protocols/compound/v2-protocol/CErc20__factory";
 export type { CEther } from "./protocols/compound/v2-protocol/CEther";
