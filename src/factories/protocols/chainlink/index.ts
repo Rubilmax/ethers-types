@@ -2,4 +2,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export { AccessControlledOffchainAggregator__factory } from "./AccessControlledOffchainAggregator__factory";
+export { ChainlinkFeedRegistry__factory } from "./ChainlinkFeedRegistry__factory";
 export { EACAggregatorProxy__factory } from "./EACAggregatorProxy__factory";

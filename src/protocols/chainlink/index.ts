@@ -2,4 +2,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export type { AccessControlledOffchainAggregator } from "./AccessControlledOffchainAggregator";
+export type { ChainlinkFeedRegistry } from "./ChainlinkFeedRegistry";
 export type { EACAggregatorProxy } from "./EACAggregatorProxy";
