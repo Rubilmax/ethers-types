@@ -9,5 +9,7 @@ import type * as compound from "./compound";
 export type { compound };
 import type * as morpho from "./morpho";
 export type { morpho };
+import type * as pendle from "./pendle";
+export type { pendle };
 import type * as uniswap from "./uniswap";
 export type { uniswap };
