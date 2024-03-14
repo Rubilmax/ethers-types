@@ -8,5 +8,6 @@ export type { ERC20Pausable } from "./ERC20Pausable";
 export type { ERC20Permit } from "./ERC20Permit";
 export type { ERC20Votes } from "./ERC20Votes";
 export type { ERC20Wrapper } from "./ERC20Wrapper";
+export type { ERC2612 } from "./ERC2612";
 export type { ERC4626 } from "./ERC4626";
 export type { IERC20Metadata } from "./IERC20Metadata";

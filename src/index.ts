@@ -338,6 +338,8 @@ export type { ERC20Votes } from "./token/ERC20/extensions/ERC20Votes";
 export { ERC20Votes__factory } from "./factories/token/ERC20/extensions/ERC20Votes__factory";
 export type { ERC20Wrapper } from "./token/ERC20/extensions/ERC20Wrapper";
 export { ERC20Wrapper__factory } from "./factories/token/ERC20/extensions/ERC20Wrapper__factory";
+export type { ERC2612 } from "./token/ERC20/extensions/ERC2612";
+export { ERC2612__factory } from "./factories/token/ERC20/extensions/ERC2612__factory";
 export type { ERC4626 } from "./token/ERC20/extensions/ERC4626";
 export { ERC4626__factory } from "./factories/token/ERC20/extensions/ERC4626__factory";
 export type { IERC20Metadata } from "./token/ERC20/extensions/IERC20Metadata";
