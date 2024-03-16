@@ -5,3 +5,4 @@ export * as aaveV2 from "./aave-v2";
 export * as aaveV3 from "./aave-v3";
 export * as blue from "./blue";
 export * as compound from "./compound";
+export { UniversalRewardsDistributor__factory } from "./UniversalRewardsDistributor__factory";

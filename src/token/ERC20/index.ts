@@ -4,4 +4,9 @@
 import type * as extensions from "./extensions";
 export type { extensions };
 export type { ERC20 } from "./ERC20";
+export type { REth } from "./REth";
+export type { SDai } from "./SDai";
+export type { StEth } from "./StEth";
+export type { WBIb01 } from "./WBIb01";
 export type { WETH } from "./WETH";
+export type { WstEth } from "./WstEth";

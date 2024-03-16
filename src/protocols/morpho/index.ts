@@ -9,3 +9,4 @@ import type * as blue from "./blue";
 export type { blue };
 import type * as compound from "./compound";
 export type { compound };
+export type { UniversalRewardsDistributor } from "./UniversalRewardsDistributor";
