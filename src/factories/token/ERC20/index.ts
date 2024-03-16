@@ -8,4 +8,4 @@ export { SDai__factory } from "./SDai__factory";
 export { StEth__factory } from "./StEth__factory";
 export { WBIb01__factory } from "./WBIb01__factory";
 export { WETH__factory } from "./WETH__factory";
-export { WstEth__factory } from "./WstEth__factory";
+export { WStEth__factory } from "./WStEth__factory";

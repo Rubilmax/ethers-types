@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 import { Contract, Interface, type ContractRunner } from "ethers";
-import type { WstEth, WstEthInterface } from "../../../token/ERC20/WstEth";
+import type { WStEth, WStEthInterface } from "../../../token/ERC20/WStEth";
 
 const _abi = [
   {
@@ -483,12 +483,12 @@ const _abi = [
   },
 ] as const;
 
-export class WstEth__factory {
+export class WStEth__factory {
   static readonly abi = _abi;
-  static createInterface(): WstEthInterface {
-    return new Interface(_abi) as WstEthInterface;
+  static createInterface(): WStEthInterface {
+    return new Interface(_abi) as WStEthInterface;
   }
-  static connect(address: string, runner?: ContractRunner | null): WstEth {
-    return new Contract(address, _abi, runner) as unknown as WstEth;
+  static connect(address: string, runner?: ContractRunner | null): WStEth {
+    return new Contract(address, _abi, runner) as unknown as WStEth;
   }
 }

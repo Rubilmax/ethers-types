@@ -9,4 +9,4 @@ export type { SDai } from "./SDai";
 export type { StEth } from "./StEth";
 export type { WBIb01 } from "./WBIb01";
 export type { WETH } from "./WETH";
-export type { WstEth } from "./WstEth";
+export type { WStEth } from "./WStEth";

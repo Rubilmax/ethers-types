@@ -23,7 +23,7 @@ import type {
   TypedContractMethod,
 } from "../../common";
 
-export interface WstEthInterface extends Interface {
+export interface WStEthInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "DOMAIN_SEPARATOR"
@@ -212,11 +212,11 @@ export namespace TransferEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface WstEth extends BaseContract {
-  connect(runner?: ContractRunner | null): WstEth;
+export interface WStEth extends BaseContract {
+  connect(runner?: ContractRunner | null): WStEth;
   waitForDeployment(): Promise<this>;
 
-  interface: WstEthInterface;
+  interface: WStEthInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
