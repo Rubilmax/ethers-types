@@ -238,6 +238,8 @@ export type { MetaMorphoFactory } from "./protocols/morpho/blue/MetaMorphoFactor
 export { MetaMorphoFactory__factory } from "./factories/protocols/morpho/blue/MetaMorphoFactory__factory";
 export type { MorphoBlue } from "./protocols/morpho/blue/MorphoBlue";
 export { MorphoBlue__factory } from "./factories/protocols/morpho/blue/MorphoBlue__factory";
+export type { PublicAllocator } from "./protocols/morpho/blue/PublicAllocator";
+export { PublicAllocator__factory } from "./factories/protocols/morpho/blue/PublicAllocator__factory";
 export type { MorphoCompound } from "./protocols/morpho/compound/MorphoCompound";
 export { MorphoCompound__factory } from "./factories/protocols/morpho/compound/MorphoCompound__factory";
 export type { MorphoCompoundLens } from "./protocols/morpho/compound/MorphoCompoundLens";

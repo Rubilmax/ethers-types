@@ -8,3 +8,4 @@ export { ChainlinkOracle__factory } from "./ChainlinkOracle__factory";
 export { MetaMorpho__factory } from "./MetaMorpho__factory";
 export { MetaMorphoFactory__factory } from "./MetaMorphoFactory__factory";
 export { MorphoBlue__factory } from "./MorphoBlue__factory";
+export { PublicAllocator__factory } from "./PublicAllocator__factory";

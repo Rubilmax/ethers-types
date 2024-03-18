@@ -8,3 +8,4 @@ export type { ChainlinkOracle } from "./ChainlinkOracle";
 export type { MetaMorpho } from "./MetaMorpho";
 export type { MetaMorphoFactory } from "./MetaMorphoFactory";
 export type { MorphoBlue } from "./MorphoBlue";
+export type { PublicAllocator } from "./PublicAllocator";
