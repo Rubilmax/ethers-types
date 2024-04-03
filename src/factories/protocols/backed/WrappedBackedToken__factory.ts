@@ -3,7 +3,10 @@
 /* eslint-disable */
 
 import { Contract, Interface, type ContractRunner } from "ethers";
-import type { WBIb01, WBIb01Interface } from "../../../token/ERC20/WBIb01";
+import type {
+  WrappedBackedToken,
+  WrappedBackedTokenInterface,
+} from "../../../protocols/backed/WrappedBackedToken";
 
 const _abi = [
   {
@@ -132,6 +135,44 @@ const _abi = [
       },
     ],
     name: "Transfer",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "whitelistedBy",
+        type: "address",
+      },
+    ],
+    name: "TransferDestinationAuthorized",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "whitelistedBy",
+        type: "address",
+      },
+    ],
+    name: "TransferOriginatorAuthorized",
     type: "event",
   },
   {
@@ -647,12 +688,15 @@ const _abi = [
   },
 ] as const;
 
-export class WBIb01__factory {
+export class WrappedBackedToken__factory {
   static readonly abi = _abi;
-  static createInterface(): WBIb01Interface {
-    return new Interface(_abi) as WBIb01Interface;
+  static createInterface(): WrappedBackedTokenInterface {
+    return new Interface(_abi) as WrappedBackedTokenInterface;
   }
-  static connect(address: string, runner?: ContractRunner | null): WBIb01 {
-    return new Contract(address, _abi, runner) as unknown as WBIb01;
+  static connect(
+    address: string,
+    runner?: ContractRunner | null
+  ): WrappedBackedToken {
+    return new Contract(address, _abi, runner) as unknown as WrappedBackedToken;
   }
 }

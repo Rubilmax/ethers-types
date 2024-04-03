@@ -23,7 +23,7 @@ import type {
   TypedContractMethod,
 } from "../../common";
 
-export interface WBIb01Interface extends Interface {
+export interface WrappedBackedTokenInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "DOMAIN_SEPARATOR"
@@ -63,6 +63,8 @@ export interface WBIb01Interface extends Interface {
       | "OwnershipTransferred"
       | "Paused"
       | "Transfer"
+      | "TransferDestinationAuthorized"
+      | "TransferOriginatorAuthorized"
       | "Unpaused"
   ): EventFragment;
 
@@ -301,6 +303,32 @@ export namespace TransferEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
+export namespace TransferDestinationAuthorizedEvent {
+  export type InputTuple = [to: AddressLike, whitelistedBy: AddressLike];
+  export type OutputTuple = [to: string, whitelistedBy: string];
+  export interface OutputObject {
+    to: string;
+    whitelistedBy: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace TransferOriginatorAuthorizedEvent {
+  export type InputTuple = [from: AddressLike, whitelistedBy: AddressLike];
+  export type OutputTuple = [from: string, whitelistedBy: string];
+  export interface OutputObject {
+    from: string;
+    whitelistedBy: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
 export namespace UnpausedEvent {
   export type InputTuple = [account: AddressLike];
   export type OutputTuple = [account: string];
@@ -313,11 +341,11 @@ export namespace UnpausedEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface WBIb01 extends BaseContract {
-  connect(runner?: ContractRunner | null): WBIb01;
+export interface WrappedBackedToken extends BaseContract {
+  connect(runner?: ContractRunner | null): WrappedBackedToken;
   waitForDeployment(): Promise<this>;
 
-  interface: WBIb01Interface;
+  interface: WrappedBackedTokenInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
@@ -671,6 +699,20 @@ export interface WBIb01 extends BaseContract {
     TransferEvent.OutputObject
   >;
   getEvent(
+    key: "TransferDestinationAuthorized"
+  ): TypedContractEvent<
+    TransferDestinationAuthorizedEvent.InputTuple,
+    TransferDestinationAuthorizedEvent.OutputTuple,
+    TransferDestinationAuthorizedEvent.OutputObject
+  >;
+  getEvent(
+    key: "TransferOriginatorAuthorized"
+  ): TypedContractEvent<
+    TransferOriginatorAuthorizedEvent.InputTuple,
+    TransferOriginatorAuthorizedEvent.OutputTuple,
+    TransferOriginatorAuthorizedEvent.OutputObject
+  >;
+  getEvent(
     key: "Unpaused"
   ): TypedContractEvent<
     UnpausedEvent.InputTuple,
@@ -743,6 +785,28 @@ export interface WBIb01 extends BaseContract {
       TransferEvent.InputTuple,
       TransferEvent.OutputTuple,
       TransferEvent.OutputObject
+    >;
+
+    "TransferDestinationAuthorized(address,address)": TypedContractEvent<
+      TransferDestinationAuthorizedEvent.InputTuple,
+      TransferDestinationAuthorizedEvent.OutputTuple,
+      TransferDestinationAuthorizedEvent.OutputObject
+    >;
+    TransferDestinationAuthorized: TypedContractEvent<
+      TransferDestinationAuthorizedEvent.InputTuple,
+      TransferDestinationAuthorizedEvent.OutputTuple,
+      TransferDestinationAuthorizedEvent.OutputObject
+    >;
+
+    "TransferOriginatorAuthorized(address,address)": TypedContractEvent<
+      TransferOriginatorAuthorizedEvent.InputTuple,
+      TransferOriginatorAuthorizedEvent.OutputTuple,
+      TransferOriginatorAuthorizedEvent.OutputObject
+    >;
+    TransferOriginatorAuthorized: TypedContractEvent<
+      TransferOriginatorAuthorizedEvent.InputTuple,
+      TransferOriginatorAuthorizedEvent.OutputTuple,
+      TransferOriginatorAuthorizedEvent.OutputObject
     >;
 
     "Unpaused(address)": TypedContractEvent<
