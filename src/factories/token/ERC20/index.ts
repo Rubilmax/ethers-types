@@ -6,6 +6,7 @@ export { ERC20__factory } from "./ERC20__factory";
 export { REth__factory } from "./REth__factory";
 export { SDai__factory } from "./SDai__factory";
 export { StEth__factory } from "./StEth__factory";
+export { WBC3M__factory } from "./WBC3M__factory";
 export { WBIb01__factory } from "./WBIb01__factory";
 export { WETH__factory } from "./WETH__factory";
 export { WStEth__factory } from "./WStEth__factory";

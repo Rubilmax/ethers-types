@@ -358,6 +358,8 @@ export type { SDai } from "./token/ERC20/SDai";
 export { SDai__factory } from "./factories/token/ERC20/SDai__factory";
 export type { StEth } from "./token/ERC20/StEth";
 export { StEth__factory } from "./factories/token/ERC20/StEth__factory";
+export type { WBC3M } from "./token/ERC20/WBC3M";
+export { WBC3M__factory } from "./factories/token/ERC20/WBC3M__factory";
 export type { WBIb01 } from "./token/ERC20/WBIb01";
 export { WBIb01__factory } from "./factories/token/ERC20/WBIb01__factory";
 export type { WETH } from "./token/ERC20/WETH";
