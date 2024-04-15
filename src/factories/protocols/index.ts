@@ -5,6 +5,7 @@ export * as aave from "./aave";
 export * as backed from "./backed";
 export * as chainlink from "./chainlink";
 export * as compound from "./compound";
+export * as curve from "./curve";
 export * as morpho from "./morpho";
 export * as pendle from "./pendle";
 export * as uniswap from "./uniswap";

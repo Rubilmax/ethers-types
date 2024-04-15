@@ -1,0 +1,111 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_curveTriPool",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_baseFeed",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_lidoFeed",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_crvusdFeed",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "name": "MathOverflowedMulDiv",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "BASE_FEED",
+        "outputs": [
+            {
+                "internalType": "contract AggregatorV3Interface",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "CRVUSD_FEED",
+        "outputs": [
+            {
+                "internalType": "contract AggregatorV3Interface",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "CURVE_TRI_POOL",
+        "outputs": [
+            {
+                "internalType": "contract CurveTricryptoInterface",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "LIDO_FEED",
+        "outputs": [
+            {
+                "internalType": "contract AggregatorV3Interface",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "SCALE_FACTOR",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "price",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

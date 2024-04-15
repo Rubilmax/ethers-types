@@ -9,6 +9,8 @@ import type * as chainlink from "./chainlink";
 export type { chainlink };
 import type * as compound from "./compound";
 export type { compound };
+import type * as curve from "./curve";
+export type { curve };
 import type * as morpho from "./morpho";
 export type { morpho };
 import type * as pendle from "./pendle";
