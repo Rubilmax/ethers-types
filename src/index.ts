@@ -240,6 +240,8 @@ export type { BlueOracle } from "./protocols/morpho/blue/BlueOracle";
 export { BlueOracle__factory } from "./factories/protocols/morpho/blue/BlueOracle__factory";
 export type { ChainlinkOracle } from "./protocols/morpho/blue/ChainlinkOracle";
 export { ChainlinkOracle__factory } from "./factories/protocols/morpho/blue/ChainlinkOracle__factory";
+export type { MarketRewardsProgramRegistry } from "./protocols/morpho/blue/MarketRewardsProgramRegistry";
+export { MarketRewardsProgramRegistry__factory } from "./factories/protocols/morpho/blue/MarketRewardsProgramRegistry__factory";
 export type { MetaMorpho } from "./protocols/morpho/blue/MetaMorpho";
 export { MetaMorpho__factory } from "./factories/protocols/morpho/blue/MetaMorpho__factory";
 export type { MetaMorphoFactory } from "./protocols/morpho/blue/MetaMorphoFactory";
