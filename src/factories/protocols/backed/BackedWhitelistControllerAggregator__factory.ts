@@ -73,6 +73,44 @@ const _abi = [
     type: "event",
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "caller",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "bool",
+        name: "newState",
+        type: "bool",
+      },
+    ],
+    name: "UpdatedCaller",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "callerAdmin",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "bool",
+        name: "newState",
+        type: "bool",
+      },
+    ],
+    name: "UpdatedCallerAdmin",
+    type: "event",
+  },
+  {
     inputs: [
       {
         internalType: "address",
@@ -115,11 +153,11 @@ const _abi = [
     inputs: [
       {
         internalType: "address",
-        name: "addressToCheck",
+        name: "",
         type: "address",
       },
     ],
-    name: "isWhitelisted",
+    name: "isAuthorizedCaller",
     outputs: [
       {
         internalType: "bool",
@@ -128,6 +166,49 @@ const _abi = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    name: "isCallerAdmin",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "addressToCheck",
+        type: "address",
+      },
+    ],
+    name: "isWhitelisted",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "isWhitelisted",
+        type: "bool",
+      },
+      {
+        internalType: "address",
+        name: "whitelistController",
+        type: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -159,6 +240,42 @@ const _abi = [
   {
     inputs: [],
     name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "caller",
+        type: "address",
+      },
+      {
+        internalType: "bool",
+        name: "value",
+        type: "bool",
+      },
+    ],
+    name: "setCaller",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "toSet",
+        type: "address",
+      },
+      {
+        internalType: "bool",
+        name: "value",
+        type: "bool",
+      },
+    ],
+    name: "setCallerAdmin",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

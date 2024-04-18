@@ -30,10 +30,14 @@ export interface BackedWhitelistControllerAggregatorInterface
       | "add"
       | "controllers"
       | "initialize"
+      | "isAuthorizedCaller"
+      | "isCallerAdmin"
       | "isWhitelisted"
       | "owner"
       | "remove"
       | "renounceOwnership"
+      | "setCaller"
+      | "setCallerAdmin"
       | "transferOwnership"
   ): FunctionFragment;
 
@@ -43,6 +47,8 @@ export interface BackedWhitelistControllerAggregatorInterface
       | "Initialized"
       | "OwnershipTransferred"
       | "RemovedController"
+      | "UpdatedCaller"
+      | "UpdatedCallerAdmin"
   ): EventFragment;
 
   encodeFunctionData(functionFragment: "add", values: [AddressLike]): string;
@@ -53,6 +59,14 @@ export interface BackedWhitelistControllerAggregatorInterface
   encodeFunctionData(
     functionFragment: "initialize",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isAuthorizedCaller",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isCallerAdmin",
+    values: [AddressLike]
   ): string;
   encodeFunctionData(
     functionFragment: "isWhitelisted",
@@ -68,6 +82,14 @@ export interface BackedWhitelistControllerAggregatorInterface
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "setCaller",
+    values: [AddressLike, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setCallerAdmin",
+    values: [AddressLike, boolean]
+  ): string;
+  encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [AddressLike]
   ): string;
@@ -79,6 +101,14 @@ export interface BackedWhitelistControllerAggregatorInterface
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "isAuthorizedCaller",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "isCallerAdmin",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "isWhitelisted",
     data: BytesLike
   ): Result;
@@ -86,6 +116,11 @@ export interface BackedWhitelistControllerAggregatorInterface
   decodeFunctionResult(functionFragment: "remove", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "setCaller", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setCallerAdmin",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -143,6 +178,32 @@ export namespace RemovedControllerEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
+export namespace UpdatedCallerEvent {
+  export type InputTuple = [caller: AddressLike, newState: boolean];
+  export type OutputTuple = [caller: string, newState: boolean];
+  export interface OutputObject {
+    caller: string;
+    newState: boolean;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace UpdatedCallerAdminEvent {
+  export type InputTuple = [callerAdmin: AddressLike, newState: boolean];
+  export type OutputTuple = [callerAdmin: string, newState: boolean];
+  export interface OutputObject {
+    callerAdmin: string;
+    newState: boolean;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
 export interface BackedWhitelistControllerAggregator extends BaseContract {
   connect(runner?: ContractRunner | null): BackedWhitelistControllerAggregator;
   waitForDeployment(): Promise<this>;
@@ -192,10 +253,23 @@ export interface BackedWhitelistControllerAggregator extends BaseContract {
 
   initialize: TypedContractMethod<[], [void], "nonpayable">;
 
-  isWhitelisted: TypedContractMethod<
-    [addressToCheck: AddressLike],
+  isAuthorizedCaller: TypedContractMethod<
+    [arg0: AddressLike],
     [boolean],
     "view"
+  >;
+
+  isCallerAdmin: TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
+
+  isWhitelisted: TypedContractMethod<
+    [addressToCheck: AddressLike],
+    [
+      [boolean, string] & {
+        isWhitelisted: boolean;
+        whitelistController: string;
+      }
+    ],
+    "nonpayable"
   >;
 
   owner: TypedContractMethod<[], [string], "view">;
@@ -203,6 +277,18 @@ export interface BackedWhitelistControllerAggregator extends BaseContract {
   remove: TypedContractMethod<[index: BigNumberish], [void], "nonpayable">;
 
   renounceOwnership: TypedContractMethod<[], [void], "nonpayable">;
+
+  setCaller: TypedContractMethod<
+    [caller: AddressLike, value: boolean],
+    [void],
+    "nonpayable"
+  >;
+
+  setCallerAdmin: TypedContractMethod<
+    [toSet: AddressLike, value: boolean],
+    [void],
+    "nonpayable"
+  >;
 
   transferOwnership: TypedContractMethod<
     [newOwner: AddressLike],
@@ -224,8 +310,23 @@ export interface BackedWhitelistControllerAggregator extends BaseContract {
     nameOrSignature: "initialize"
   ): TypedContractMethod<[], [void], "nonpayable">;
   getFunction(
+    nameOrSignature: "isAuthorizedCaller"
+  ): TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
+  getFunction(
+    nameOrSignature: "isCallerAdmin"
+  ): TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
+  getFunction(
     nameOrSignature: "isWhitelisted"
-  ): TypedContractMethod<[addressToCheck: AddressLike], [boolean], "view">;
+  ): TypedContractMethod<
+    [addressToCheck: AddressLike],
+    [
+      [boolean, string] & {
+        isWhitelisted: boolean;
+        whitelistController: string;
+      }
+    ],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "owner"
   ): TypedContractMethod<[], [string], "view">;
@@ -235,6 +336,20 @@ export interface BackedWhitelistControllerAggregator extends BaseContract {
   getFunction(
     nameOrSignature: "renounceOwnership"
   ): TypedContractMethod<[], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "setCaller"
+  ): TypedContractMethod<
+    [caller: AddressLike, value: boolean],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "setCallerAdmin"
+  ): TypedContractMethod<
+    [toSet: AddressLike, value: boolean],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "transferOwnership"
   ): TypedContractMethod<[newOwner: AddressLike], [void], "nonpayable">;
@@ -266,6 +381,20 @@ export interface BackedWhitelistControllerAggregator extends BaseContract {
     RemovedControllerEvent.InputTuple,
     RemovedControllerEvent.OutputTuple,
     RemovedControllerEvent.OutputObject
+  >;
+  getEvent(
+    key: "UpdatedCaller"
+  ): TypedContractEvent<
+    UpdatedCallerEvent.InputTuple,
+    UpdatedCallerEvent.OutputTuple,
+    UpdatedCallerEvent.OutputObject
+  >;
+  getEvent(
+    key: "UpdatedCallerAdmin"
+  ): TypedContractEvent<
+    UpdatedCallerAdminEvent.InputTuple,
+    UpdatedCallerAdminEvent.OutputTuple,
+    UpdatedCallerAdminEvent.OutputObject
   >;
 
   filters: {
@@ -311,6 +440,28 @@ export interface BackedWhitelistControllerAggregator extends BaseContract {
       RemovedControllerEvent.InputTuple,
       RemovedControllerEvent.OutputTuple,
       RemovedControllerEvent.OutputObject
+    >;
+
+    "UpdatedCaller(address,bool)": TypedContractEvent<
+      UpdatedCallerEvent.InputTuple,
+      UpdatedCallerEvent.OutputTuple,
+      UpdatedCallerEvent.OutputObject
+    >;
+    UpdatedCaller: TypedContractEvent<
+      UpdatedCallerEvent.InputTuple,
+      UpdatedCallerEvent.OutputTuple,
+      UpdatedCallerEvent.OutputObject
+    >;
+
+    "UpdatedCallerAdmin(address,bool)": TypedContractEvent<
+      UpdatedCallerAdminEvent.InputTuple,
+      UpdatedCallerAdminEvent.OutputTuple,
+      UpdatedCallerAdminEvent.OutputObject
+    >;
+    UpdatedCallerAdmin: TypedContractEvent<
+      UpdatedCallerAdminEvent.InputTuple,
+      UpdatedCallerAdminEvent.OutputTuple,
+      UpdatedCallerAdminEvent.OutputObject
     >;
   };
 }
