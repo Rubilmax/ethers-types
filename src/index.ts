@@ -192,6 +192,8 @@ export type { BackedWhitelistControllerAggregator } from "./protocols/backed/Bac
 export { BackedWhitelistControllerAggregator__factory } from "./factories/protocols/backed/BackedWhitelistControllerAggregator__factory";
 export type { WrappedBackedToken } from "./protocols/backed/WrappedBackedToken";
 export { WrappedBackedToken__factory } from "./factories/protocols/backed/WrappedBackedToken__factory";
+export type { BalancerVault } from "./protocols/balancer/BalancerVault";
+export { BalancerVault__factory } from "./factories/protocols/balancer/BalancerVault__factory";
 export type { AccessControlledOffchainAggregator } from "./protocols/chainlink/AccessControlledOffchainAggregator";
 export { AccessControlledOffchainAggregator__factory } from "./factories/protocols/chainlink/AccessControlledOffchainAggregator__factory";
 export type { ChainlinkFeedRegistry } from "./protocols/chainlink/ChainlinkFeedRegistry";
