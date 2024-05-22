@@ -4,4 +4,5 @@
 export { BackedToken__factory } from "./BackedToken__factory";
 export { BackedWhitelistController__factory } from "./BackedWhitelistController__factory";
 export { BackedWhitelistControllerAggregator__factory } from "./BackedWhitelistControllerAggregator__factory";
+export { BackedWhitelistControllerAggregatorV2__factory } from "./BackedWhitelistControllerAggregatorV2__factory";
 export { WrappedBackedToken__factory } from "./WrappedBackedToken__factory";

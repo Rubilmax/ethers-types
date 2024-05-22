@@ -190,6 +190,8 @@ export type { BackedWhitelistController } from "./protocols/backed/BackedWhiteli
 export { BackedWhitelistController__factory } from "./factories/protocols/backed/BackedWhitelistController__factory";
 export type { BackedWhitelistControllerAggregator } from "./protocols/backed/BackedWhitelistControllerAggregator";
 export { BackedWhitelistControllerAggregator__factory } from "./factories/protocols/backed/BackedWhitelistControllerAggregator__factory";
+export type { BackedWhitelistControllerAggregatorV2 } from "./protocols/backed/BackedWhitelistControllerAggregatorV2";
+export { BackedWhitelistControllerAggregatorV2__factory } from "./factories/protocols/backed/BackedWhitelistControllerAggregatorV2__factory";
 export type { WrappedBackedToken } from "./protocols/backed/WrappedBackedToken";
 export { WrappedBackedToken__factory } from "./factories/protocols/backed/WrappedBackedToken__factory";
 export type { BalancerVault } from "./protocols/balancer/BalancerVault";
