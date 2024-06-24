@@ -196,6 +196,8 @@ export type { WrappedBackedToken } from "./protocols/backed/WrappedBackedToken";
 export { WrappedBackedToken__factory } from "./factories/protocols/backed/WrappedBackedToken__factory";
 export type { BalancerVault } from "./protocols/balancer/BalancerVault";
 export { BalancerVault__factory } from "./factories/protocols/balancer/BalancerVault__factory";
+export type { PermissionedERC20Wrapper } from "./protocols/centrifuge/PermissionedERC20Wrapper";
+export { PermissionedERC20Wrapper__factory } from "./factories/protocols/centrifuge/PermissionedERC20Wrapper__factory";
 export type { AccessControlledOffchainAggregator } from "./protocols/chainlink/AccessControlledOffchainAggregator";
 export { AccessControlledOffchainAggregator__factory } from "./factories/protocols/chainlink/AccessControlledOffchainAggregator__factory";
 export type { ChainlinkFeedRegistry } from "./protocols/chainlink/ChainlinkFeedRegistry";

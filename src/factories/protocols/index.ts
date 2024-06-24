@@ -4,6 +4,7 @@
 export * as aave from "./aave";
 export * as backed from "./backed";
 export * as balancer from "./balancer";
+export * as centrifuge from "./centrifuge";
 export * as chainlink from "./chainlink";
 export * as compound from "./compound";
 export * as curve from "./curve";
