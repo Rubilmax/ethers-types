@@ -11,4 +11,5 @@ export type { MetaMorphoFactory } from "./MetaMorphoFactory";
 export type { MorphoBlue } from "./MorphoBlue";
 export type { MorphoChainlinkOracleV2 } from "./MorphoChainlinkOracleV2";
 export type { MorphoChainlinkOracleV2Factory } from "./MorphoChainlinkOracleV2Factory";
+export type { PermissionedERC20Wrapper } from "./PermissionedERC20Wrapper";
 export type { PublicAllocator } from "./PublicAllocator";

@@ -7,8 +7,6 @@ import type * as backed from "./backed";
 export type { backed };
 import type * as balancer from "./balancer";
 export type { balancer };
-import type * as centrifuge from "./centrifuge";
-export type { centrifuge };
 import type * as chainlink from "./chainlink";
 export type { chainlink };
 import type * as compound from "./compound";

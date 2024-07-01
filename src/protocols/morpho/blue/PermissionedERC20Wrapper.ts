@@ -21,44 +21,7 @@ import type {
   TypedLogDescription,
   TypedListener,
   TypedContractMethod,
-} from "../../common";
-
-export type AttestationStruct = {
-  uid: BytesLike;
-  schema: BytesLike;
-  time: BigNumberish;
-  expirationTime: BigNumberish;
-  revocationTime: BigNumberish;
-  refUID: BytesLike;
-  recipient: AddressLike;
-  attester: AddressLike;
-  revocable: boolean;
-  data: BytesLike;
-};
-
-export type AttestationStructOutput = [
-  uid: string,
-  schema: string,
-  time: bigint,
-  expirationTime: bigint,
-  revocationTime: bigint,
-  refUID: string,
-  recipient: string,
-  attester: string,
-  revocable: boolean,
-  data: string
-] & {
-  uid: string;
-  schema: string;
-  time: bigint;
-  expirationTime: bigint;
-  revocationTime: bigint;
-  refUID: string;
-  recipient: string;
-  attester: string;
-  revocable: boolean;
-  data: string;
-};
+} from "../../../common";
 
 export interface PermissionedERC20WrapperInterface extends Interface {
   getFunction(
@@ -68,37 +31,24 @@ export interface PermissionedERC20WrapperInterface extends Interface {
       | "MORPHO"
       | "allowance"
       | "approve"
-      | "attestationService"
       | "balanceOf"
       | "decimals"
-      | "deny"
       | "depositFor"
       | "eip712Domain"
-      | "file"
-      | "getVerifiedAccountAttestation"
-      | "getVerifiedCountryAttestation"
       | "hasPermission"
-      | "indexer"
       | "name"
       | "nonces"
       | "permit"
-      | "rely"
       | "symbol"
       | "totalSupply"
       | "transfer"
       | "transferFrom"
       | "underlying"
-      | "wards"
       | "withdrawTo"
   ): FunctionFragment;
 
   getEvent(
-    nameOrSignatureOrTopic:
-      | "Approval"
-      | "Deny"
-      | "EIP712DomainChanged"
-      | "Rely"
-      | "Transfer"
+    nameOrSignatureOrTopic: "Approval" | "EIP712DomainChanged" | "Transfer"
   ): EventFragment;
 
   encodeFunctionData(functionFragment: "BUNDLER", values?: undefined): string;
@@ -116,15 +66,10 @@ export interface PermissionedERC20WrapperInterface extends Interface {
     values: [AddressLike, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "attestationService",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
     functionFragment: "balanceOf",
     values: [AddressLike]
   ): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-  encodeFunctionData(functionFragment: "deny", values: [AddressLike]): string;
   encodeFunctionData(
     functionFragment: "depositFor",
     values: [AddressLike, BigNumberish]
@@ -134,22 +79,9 @@ export interface PermissionedERC20WrapperInterface extends Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "file",
-    values: [BytesLike, AddressLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getVerifiedAccountAttestation",
-    values: [AddressLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getVerifiedCountryAttestation",
-    values: [AddressLike]
-  ): string;
-  encodeFunctionData(
     functionFragment: "hasPermission",
     values: [AddressLike]
   ): string;
-  encodeFunctionData(functionFragment: "indexer", values?: undefined): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "nonces", values: [AddressLike]): string;
   encodeFunctionData(
@@ -164,7 +96,6 @@ export interface PermissionedERC20WrapperInterface extends Interface {
       BytesLike
     ]
   ): string;
-  encodeFunctionData(functionFragment: "rely", values: [AddressLike]): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "totalSupply",
@@ -182,7 +113,6 @@ export interface PermissionedERC20WrapperInterface extends Interface {
     functionFragment: "underlying",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "wards", values: [AddressLike]): string;
   encodeFunctionData(
     functionFragment: "withdrawTo",
     values: [AddressLike, BigNumberish]
@@ -196,36 +126,20 @@ export interface PermissionedERC20WrapperInterface extends Interface {
   decodeFunctionResult(functionFragment: "MORPHO", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "attestationService",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "deny", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "depositFor", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "eip712Domain",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "file", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getVerifiedAccountAttestation",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getVerifiedCountryAttestation",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
     functionFragment: "hasPermission",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "indexer", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "nonces", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "permit", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "rely", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "totalSupply",
@@ -237,7 +151,6 @@ export interface PermissionedERC20WrapperInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "underlying", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "wards", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "withdrawTo", data: BytesLike): Result;
 }
 
@@ -259,34 +172,10 @@ export namespace ApprovalEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export namespace DenyEvent {
-  export type InputTuple = [user: AddressLike];
-  export type OutputTuple = [user: string];
-  export interface OutputObject {
-    user: string;
-  }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
-}
-
 export namespace EIP712DomainChangedEvent {
   export type InputTuple = [];
   export type OutputTuple = [];
   export interface OutputObject {}
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
-}
-
-export namespace RelyEvent {
-  export type InputTuple = [user: AddressLike];
-  export type OutputTuple = [user: string];
-  export interface OutputObject {
-    user: string;
-  }
   export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
   export type Filter = TypedDeferredTopicFilter<Event>;
   export type Log = TypedEventLog<Event>;
@@ -372,13 +261,9 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     "nonpayable"
   >;
 
-  attestationService: TypedContractMethod<[], [string], "view">;
-
   balanceOf: TypedContractMethod<[account: AddressLike], [bigint], "view">;
 
   decimals: TypedContractMethod<[], [bigint], "view">;
-
-  deny: TypedContractMethod<[user: AddressLike], [void], "nonpayable">;
 
   depositFor: TypedContractMethod<
     [account: AddressLike, value: BigNumberish],
@@ -402,27 +287,7 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     "view"
   >;
 
-  file: TypedContractMethod<
-    [what: BytesLike, data: AddressLike],
-    [void],
-    "nonpayable"
-  >;
-
-  getVerifiedAccountAttestation: TypedContractMethod<
-    [account: AddressLike],
-    [AttestationStructOutput],
-    "view"
-  >;
-
-  getVerifiedCountryAttestation: TypedContractMethod<
-    [account: AddressLike],
-    [AttestationStructOutput],
-    "view"
-  >;
-
   hasPermission: TypedContractMethod<[account: AddressLike], [boolean], "view">;
-
-  indexer: TypedContractMethod<[], [string], "view">;
 
   name: TypedContractMethod<[], [string], "view">;
 
@@ -442,8 +307,6 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     "nonpayable"
   >;
 
-  rely: TypedContractMethod<[user: AddressLike], [void], "nonpayable">;
-
   symbol: TypedContractMethod<[], [string], "view">;
 
   totalSupply: TypedContractMethod<[], [bigint], "view">;
@@ -461,8 +324,6 @@ export interface PermissionedERC20Wrapper extends BaseContract {
   >;
 
   underlying: TypedContractMethod<[], [string], "view">;
-
-  wards: TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
 
   withdrawTo: TypedContractMethod<
     [account: AddressLike, value: BigNumberish],
@@ -498,17 +359,11 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     "nonpayable"
   >;
   getFunction(
-    nameOrSignature: "attestationService"
-  ): TypedContractMethod<[], [string], "view">;
-  getFunction(
     nameOrSignature: "balanceOf"
   ): TypedContractMethod<[account: AddressLike], [bigint], "view">;
   getFunction(
     nameOrSignature: "decimals"
   ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "deny"
-  ): TypedContractMethod<[user: AddressLike], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "depositFor"
   ): TypedContractMethod<
@@ -534,32 +389,8 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     "view"
   >;
   getFunction(
-    nameOrSignature: "file"
-  ): TypedContractMethod<
-    [what: BytesLike, data: AddressLike],
-    [void],
-    "nonpayable"
-  >;
-  getFunction(
-    nameOrSignature: "getVerifiedAccountAttestation"
-  ): TypedContractMethod<
-    [account: AddressLike],
-    [AttestationStructOutput],
-    "view"
-  >;
-  getFunction(
-    nameOrSignature: "getVerifiedCountryAttestation"
-  ): TypedContractMethod<
-    [account: AddressLike],
-    [AttestationStructOutput],
-    "view"
-  >;
-  getFunction(
     nameOrSignature: "hasPermission"
   ): TypedContractMethod<[account: AddressLike], [boolean], "view">;
-  getFunction(
-    nameOrSignature: "indexer"
-  ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "name"
   ): TypedContractMethod<[], [string], "view">;
@@ -581,9 +412,6 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     [void],
     "nonpayable"
   >;
-  getFunction(
-    nameOrSignature: "rely"
-  ): TypedContractMethod<[user: AddressLike], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "symbol"
   ): TypedContractMethod<[], [string], "view">;
@@ -608,9 +436,6 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     nameOrSignature: "underlying"
   ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: "wards"
-  ): TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
-  getFunction(
     nameOrSignature: "withdrawTo"
   ): TypedContractMethod<
     [account: AddressLike, value: BigNumberish],
@@ -626,25 +451,11 @@ export interface PermissionedERC20Wrapper extends BaseContract {
     ApprovalEvent.OutputObject
   >;
   getEvent(
-    key: "Deny"
-  ): TypedContractEvent<
-    DenyEvent.InputTuple,
-    DenyEvent.OutputTuple,
-    DenyEvent.OutputObject
-  >;
-  getEvent(
     key: "EIP712DomainChanged"
   ): TypedContractEvent<
     EIP712DomainChangedEvent.InputTuple,
     EIP712DomainChangedEvent.OutputTuple,
     EIP712DomainChangedEvent.OutputObject
-  >;
-  getEvent(
-    key: "Rely"
-  ): TypedContractEvent<
-    RelyEvent.InputTuple,
-    RelyEvent.OutputTuple,
-    RelyEvent.OutputObject
   >;
   getEvent(
     key: "Transfer"
@@ -666,17 +477,6 @@ export interface PermissionedERC20Wrapper extends BaseContract {
       ApprovalEvent.OutputObject
     >;
 
-    "Deny(address)": TypedContractEvent<
-      DenyEvent.InputTuple,
-      DenyEvent.OutputTuple,
-      DenyEvent.OutputObject
-    >;
-    Deny: TypedContractEvent<
-      DenyEvent.InputTuple,
-      DenyEvent.OutputTuple,
-      DenyEvent.OutputObject
-    >;
-
     "EIP712DomainChanged()": TypedContractEvent<
       EIP712DomainChangedEvent.InputTuple,
       EIP712DomainChangedEvent.OutputTuple,
@@ -686,17 +486,6 @@ export interface PermissionedERC20Wrapper extends BaseContract {
       EIP712DomainChangedEvent.InputTuple,
       EIP712DomainChangedEvent.OutputTuple,
       EIP712DomainChangedEvent.OutputObject
-    >;
-
-    "Rely(address)": TypedContractEvent<
-      RelyEvent.InputTuple,
-      RelyEvent.OutputTuple,
-      RelyEvent.OutputObject
-    >;
-    Rely: TypedContractEvent<
-      RelyEvent.InputTuple,
-      RelyEvent.OutputTuple,
-      RelyEvent.OutputObject
     >;
 
     "Transfer(address,address,uint256)": TypedContractEvent<

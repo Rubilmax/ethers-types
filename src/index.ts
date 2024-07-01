@@ -196,8 +196,6 @@ export type { WrappedBackedToken } from "./protocols/backed/WrappedBackedToken";
 export { WrappedBackedToken__factory } from "./factories/protocols/backed/WrappedBackedToken__factory";
 export type { BalancerVault } from "./protocols/balancer/BalancerVault";
 export { BalancerVault__factory } from "./factories/protocols/balancer/BalancerVault__factory";
-export type { PermissionedERC20Wrapper } from "./protocols/centrifuge/PermissionedERC20Wrapper";
-export { PermissionedERC20Wrapper__factory } from "./factories/protocols/centrifuge/PermissionedERC20Wrapper__factory";
 export type { AccessControlledOffchainAggregator } from "./protocols/chainlink/AccessControlledOffchainAggregator";
 export { AccessControlledOffchainAggregator__factory } from "./factories/protocols/chainlink/AccessControlledOffchainAggregator__factory";
 export type { ChainlinkFeedRegistry } from "./protocols/chainlink/ChainlinkFeedRegistry";
@@ -258,6 +256,8 @@ export type { MorphoChainlinkOracleV2 } from "./protocols/morpho/blue/MorphoChai
 export { MorphoChainlinkOracleV2__factory } from "./factories/protocols/morpho/blue/MorphoChainlinkOracleV2__factory";
 export type { MorphoChainlinkOracleV2Factory } from "./protocols/morpho/blue/MorphoChainlinkOracleV2Factory";
 export { MorphoChainlinkOracleV2Factory__factory } from "./factories/protocols/morpho/blue/MorphoChainlinkOracleV2Factory__factory";
+export type { PermissionedERC20Wrapper } from "./protocols/morpho/blue/PermissionedERC20Wrapper";
+export { PermissionedERC20Wrapper__factory } from "./factories/protocols/morpho/blue/PermissionedERC20Wrapper__factory";
 export type { PublicAllocator } from "./protocols/morpho/blue/PublicAllocator";
 export { PublicAllocator__factory } from "./factories/protocols/morpho/blue/PublicAllocator__factory";
 export type { MorphoCompound } from "./protocols/morpho/compound/MorphoCompound";

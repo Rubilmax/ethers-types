@@ -6,40 +6,9 @@ import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
   PermissionedERC20Wrapper,
   PermissionedERC20WrapperInterface,
-} from "../../../protocols/centrifuge/PermissionedERC20Wrapper";
+} from "../../../../protocols/morpho/blue/PermissionedERC20Wrapper";
 
 const _abi = [
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "name_",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "symbol_",
-        type: "string",
-      },
-      {
-        internalType: "contract IERC20",
-        name: "underlyingToken",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "morpho",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "bundler",
-        type: "address",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "constructor",
-  },
   {
     inputs: [
       {
@@ -304,34 +273,8 @@ const _abi = [
   },
   {
     anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "user",
-        type: "address",
-      },
-    ],
-    name: "Deny",
-    type: "event",
-  },
-  {
-    anonymous: false,
     inputs: [],
     name: "EIP712DomainChanged",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "user",
-        type: "address",
-      },
-    ],
-    name: "Rely",
     type: "event",
   },
   {
@@ -447,19 +390,6 @@ const _abi = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "attestationService",
-    outputs: [
-      {
-        internalType: "contract AttestationService",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [
       {
         internalType: "address",
@@ -489,19 +419,6 @@ const _abi = [
       },
     ],
     stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "user",
-        type: "address",
-      },
-    ],
-    name: "deny",
-    outputs: [],
-    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -574,166 +491,6 @@ const _abi = [
   {
     inputs: [
       {
-        internalType: "bytes32",
-        name: "what",
-        type: "bytes32",
-      },
-      {
-        internalType: "address",
-        name: "data",
-        type: "address",
-      },
-    ],
-    name: "file",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
-    ],
-    name: "getVerifiedAccountAttestation",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "bytes32",
-            name: "uid",
-            type: "bytes32",
-          },
-          {
-            internalType: "bytes32",
-            name: "schema",
-            type: "bytes32",
-          },
-          {
-            internalType: "uint64",
-            name: "time",
-            type: "uint64",
-          },
-          {
-            internalType: "uint64",
-            name: "expirationTime",
-            type: "uint64",
-          },
-          {
-            internalType: "uint64",
-            name: "revocationTime",
-            type: "uint64",
-          },
-          {
-            internalType: "bytes32",
-            name: "refUID",
-            type: "bytes32",
-          },
-          {
-            internalType: "address",
-            name: "recipient",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "attester",
-            type: "address",
-          },
-          {
-            internalType: "bool",
-            name: "revocable",
-            type: "bool",
-          },
-          {
-            internalType: "bytes",
-            name: "data",
-            type: "bytes",
-          },
-        ],
-        internalType: "struct Attestation",
-        name: "attestation",
-        type: "tuple",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
-    ],
-    name: "getVerifiedCountryAttestation",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "bytes32",
-            name: "uid",
-            type: "bytes32",
-          },
-          {
-            internalType: "bytes32",
-            name: "schema",
-            type: "bytes32",
-          },
-          {
-            internalType: "uint64",
-            name: "time",
-            type: "uint64",
-          },
-          {
-            internalType: "uint64",
-            name: "expirationTime",
-            type: "uint64",
-          },
-          {
-            internalType: "uint64",
-            name: "revocationTime",
-            type: "uint64",
-          },
-          {
-            internalType: "bytes32",
-            name: "refUID",
-            type: "bytes32",
-          },
-          {
-            internalType: "address",
-            name: "recipient",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "attester",
-            type: "address",
-          },
-          {
-            internalType: "bool",
-            name: "revocable",
-            type: "bool",
-          },
-          {
-            internalType: "bytes",
-            name: "data",
-            type: "bytes",
-          },
-        ],
-        internalType: "struct Attestation",
-        name: "attestation",
-        type: "tuple",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
         internalType: "address",
         name: "account",
         type: "address",
@@ -745,19 +502,6 @@ const _abi = [
         internalType: "bool",
         name: "attested",
         type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "indexer",
-    outputs: [
-      {
-        internalType: "contract AttestationIndexer",
-        name: "",
-        type: "address",
       },
     ],
     stateMutability: "view",
@@ -834,19 +578,6 @@ const _abi = [
       },
     ],
     name: "permit",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "user",
-        type: "address",
-      },
-    ],
-    name: "rely",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -938,25 +669,6 @@ const _abi = [
         internalType: "contract IERC20",
         name: "",
         type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    name: "wards",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
       },
     ],
     stateMutability: "view",

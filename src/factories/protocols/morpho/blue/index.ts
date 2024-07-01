@@ -11,4 +11,5 @@ export { MetaMorphoFactory__factory } from "./MetaMorphoFactory__factory";
 export { MorphoBlue__factory } from "./MorphoBlue__factory";
 export { MorphoChainlinkOracleV2__factory } from "./MorphoChainlinkOracleV2__factory";
 export { MorphoChainlinkOracleV2Factory__factory } from "./MorphoChainlinkOracleV2Factory__factory";
+export { PermissionedERC20Wrapper__factory } from "./PermissionedERC20Wrapper__factory";
 export { PublicAllocator__factory } from "./PublicAllocator__factory";
