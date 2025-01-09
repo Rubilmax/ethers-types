@@ -250,6 +250,8 @@ export type { MetaMorpho } from "./protocols/morpho/blue/MetaMorpho";
 export { MetaMorpho__factory } from "./factories/protocols/morpho/blue/MetaMorpho__factory";
 export type { MetaMorphoFactory } from "./protocols/morpho/blue/MetaMorphoFactory";
 export { MetaMorphoFactory__factory } from "./factories/protocols/morpho/blue/MetaMorphoFactory__factory";
+export type { MetaMorphoV1_1 } from "./protocols/morpho/blue/MetaMorphoV1_1";
+export { MetaMorphoV1_1__factory } from "./factories/protocols/morpho/blue/MetaMorphoV1_1__factory";
 export type { MorphoBlue } from "./protocols/morpho/blue/MorphoBlue";
 export { MorphoBlue__factory } from "./factories/protocols/morpho/blue/MorphoBlue__factory";
 export type { MorphoChainlinkOracleV2 } from "./protocols/morpho/blue/MorphoChainlinkOracleV2";

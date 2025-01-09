@@ -8,6 +8,7 @@ export type { ChainlinkOracle } from "./ChainlinkOracle";
 export type { MarketRewardsProgramRegistry } from "./MarketRewardsProgramRegistry";
 export type { MetaMorpho } from "./MetaMorpho";
 export type { MetaMorphoFactory } from "./MetaMorphoFactory";
+export type { MetaMorphoV1_1 } from "./MetaMorphoV1_1";
 export type { MorphoBlue } from "./MorphoBlue";
 export type { MorphoChainlinkOracleV2 } from "./MorphoChainlinkOracleV2";
 export type { MorphoChainlinkOracleV2Factory } from "./MorphoChainlinkOracleV2Factory";
