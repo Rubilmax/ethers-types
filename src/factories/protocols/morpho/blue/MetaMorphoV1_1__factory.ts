@@ -458,7 +458,7 @@ const _abi = [
   },
   {
     type: "function",
-    name: "lotalAssets",
+    name: "lostAssets",
     inputs: [],
     outputs: [
       {

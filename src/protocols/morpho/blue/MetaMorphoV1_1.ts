@@ -81,7 +81,7 @@ export interface MetaMorphoV1_1Interface extends Interface {
       | "guardian"
       | "isAllocator"
       | "lastTotalAssets"
-      | "lotalAssets"
+      | "lostAssets"
       | "maxDeposit"
       | "maxMint"
       | "maxRedeem"
@@ -240,7 +240,7 @@ export interface MetaMorphoV1_1Interface extends Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "lotalAssets",
+    functionFragment: "lostAssets",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -490,10 +490,7 @@ export interface MetaMorphoV1_1Interface extends Interface {
     functionFragment: "lastTotalAssets",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(
-    functionFragment: "lotalAssets",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "lostAssets", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "maxDeposit", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "maxMint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "maxRedeem", data: BytesLike): Result;
@@ -1231,7 +1228,7 @@ export interface MetaMorphoV1_1 extends BaseContract {
 
   lastTotalAssets: TypedContractMethod<[], [bigint], "view">;
 
-  lotalAssets: TypedContractMethod<[], [bigint], "view">;
+  lostAssets: TypedContractMethod<[], [bigint], "view">;
 
   maxDeposit: TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
 
@@ -1547,7 +1544,7 @@ export interface MetaMorphoV1_1 extends BaseContract {
     nameOrSignature: "lastTotalAssets"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: "lotalAssets"
+    nameOrSignature: "lostAssets"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "maxDeposit"
